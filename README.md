@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ============================
 #Software Carpentry - Open Science Grid (SWC-OSG) Workshop#
 ============================
@@ -119,3 +120,9 @@ the followings
 Now you will have to change the workshop front page in the current repo `YYYY-MM-DD.git` as 
 outlined in the previous section.  
 
+=======
+2014-12-15-UChicagoCI
+=====================
+
+UChicago Workshop 
+>>>>>>> ddad946f8c22d918dbb42bc9412262bac9095147
