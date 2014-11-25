@@ -5,6 +5,7 @@
   <head>
     <title>Software Carpentry: {{ page.venue }}</title>
     {% include header.html %}
+    <meta name="title" content="{{page.title}}" />
     <meta name="venue" content="{{page.venue}}" />
     <meta name="date" content="{{page.humandate}}" />
     <meta name="startdate" content="{{page.startdate}}" />
@@ -18,6 +19,7 @@
         <div class="hero-unit">
           <div class="row-fluid">
             <div class="span10">
+              <h2>{{page.title}}</h2>
               <h2>{{page.venue}}</h2>
               {% if page.address %}{{page.address}}<br/>{% endif %}
               {{page.humandate}}
