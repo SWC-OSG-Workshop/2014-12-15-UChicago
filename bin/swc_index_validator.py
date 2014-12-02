@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/Users/bala/anaconda/bin python
 
 '''Test script to check whether index.html is valid.
 
@@ -24,7 +24,9 @@ Checks for:
 
 import sys
 import re
-
+sys.path.append("/Users/bala/anaconda")
+sys.path.append("/Users/bala/anaconda/lib")
+sys.path.append("/Users/bala/anaconda/bin")
 import yaml
 from collections import Counter
 
