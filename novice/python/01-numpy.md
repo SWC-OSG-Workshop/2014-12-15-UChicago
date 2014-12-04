@@ -14,17 +14,16 @@ root: ../..
 0,0,2,0,4,2,2,1,6,7,10,7,9,13,8,8,15,10,10,7,17,4,4,7,6,15,6,4,9,11,3,5,6,3,3,4,2,3,2,1
 0,1,1,3,3,1,3,5,2,4,4,7,6,5,3,10,8,10,6,17,9,14,9,7,13,9,12,6,7,7,9,6,3,2,2,4,2,0,1,1</code></pre>
 
+First we get the input data from the github repo. As we learned before, we 
+clone the "ExampleData" repo. 
+
 <code> 
-Get the data to your local directory from the github repo
-
-Clone this repo to get the input data files
-
 $ git clone https://github.com/SWC-OSG-Workshop/ExampleData.git
 
 $ cd Python
 </code> 
 
-You will see several csv files. We will use these files in the following examples. 
+We see several csv files. We will use these files in the following examples. 
 
 </div>
 
