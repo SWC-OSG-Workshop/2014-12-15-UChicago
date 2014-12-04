@@ -111,7 +111,16 @@ ipython notebook --notebook-dir "name of the directory"
        [ 0.,  0.,  1., ...,  1.,  1.,  0.]])</pre>
 </div>
 
+<p>
+If you want to suppress the output, insert ";" at the end of the statement. 
+</p>
 
+<div class="in">
+<pre>numpy.loadtxt(fname=&#39;inflammation-01.csv&#39;, delimiter=&#39;,&#39;);</pre>
+</div>
+<p>
+Run the cell to see the output disappear. Now you can save the note book using the keyboard by typing "s". 
+</p>
 <div class="">
 <p>The expression <code>numpy.loadtxt(...)</code> is a <a href="../../gloss.html#function-call">function call</a> that asks Python to run the function <code>loadtxt</code> that belongs to the <code>numpy</code> library. This <a href="../../gloss.html#dotted-notation">dotted notation</a> is used everywhere in Python to refer to the parts of things as <code>whole.part</code>.</p>
 <p><code>numpy.loadtxt</code> has two <a href="../../gloss.html#parameter">parameters</a>: the name of the file we want to read, and the <a href="../../gloss.html#delimiter">delimiter</a> that separates values on a line. These both need to be character strings (or <a href="../../gloss.html#string">strings</a> for short), so we put them in quotes.</p>
