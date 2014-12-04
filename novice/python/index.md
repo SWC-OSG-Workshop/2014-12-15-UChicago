@@ -18,7 +18,7 @@ We use Python in our lessons because:
 
 But the two most important things are
 to use whatever language your colleagues are using,
-so that you can share you work with them easily,
+so that you can share your work with them easily,
 and to use that language *well*.
 
 <div class="toc" markdown="1">
