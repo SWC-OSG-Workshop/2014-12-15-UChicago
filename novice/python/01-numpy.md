@@ -50,6 +50,20 @@ We see several csv files. We will use these files in the following examples.
 <p>To do all that, we'll have to learn a little bit about programming.</p>
 </div>
 
+Let us open the ipython notebook
+<code> 
+ipython notebook   
+</code>
+
+<p>
+or 
+</p>
+
+<code> 
+ipython notebook --notebook-dir "name of the directory"  
+</code>
+
+
 
 <div class="objectives">
 <h4 id="objectives">Objectives</h4>
