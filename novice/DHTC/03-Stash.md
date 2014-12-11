@@ -89,22 +89,33 @@ and directory transfers transparently without needing further input from you.
 When the transfer is complete, Globus will send a notification to you indicating
 this.
 
-Let's transfer a file from your laptop to Globus.  First go to the [Globus
+Let's transfer a file from your laptop to Globus.  Doing this will require an 
+application called Globus Connect Personal that allows Globus to transfer files
+and directories to and from your laptop. First go to the [Globus
 page](https://www.globus.org/globus-connect-personal) and download and install
 the globus connect personal installer specific to your system.  
 
 While that's running, you'll need to get a setup key from Globus in order to
 setup the Globus Connect Personal software.  
-   * First login to [Globus](http://www.globus.org) at www.globus.org using your
-     OSG Connect username and password
-   * Next go to this [page](https://www.globusonline.org/xfer/ManageEndpoints?globus_connect=true)
-   * Enter a name for your endpoint on the page
-   * Click on "Generate setup Key"
-   * Select the key and copy the key
+* First login to [Globus](http://www.globus.org) at www.globus.org using your OSG Connect username and password
+* Next go to this [page](https://www.globusonline.org/xfer/ManageEndpoints?globus_connect=true)
+* Enter a name for your endpoint on the page (remember this!)
+* Click on "Generate setup Key"
+* Select the key and copy the key
 
 Finally, start the Globus online personal software that you just installed.  The
 installer will ask for the setup key that you obtained from the Globus website.
 At this point, the install and setup of Globus Connect Personal is complete.
+
+Now go to [http://www.globus.org](http://www.globus.org) and under the Quick
+Links menu, select Transfer files.  For the first endpoint, enter username#name
+where name is the name you choose for the endpoint above. You should now see the
+files from your laptop displayed.  For the second endpoint, enter
+osgconnect#stash and hit enter.  You should now see the contents of your home
+directory on OSG Connect.  Now double click on the data directory.  Select a
+file on your laptop and click on the right arrow on the top of the screen to
+start a transfer to *stash*. You can transfer files or directories to your
+laptop by selecting it in the *stash* window and selecting the left arrow.
 
 <h2>Accessing Stash using HTTP</h2>
 *Stash* also allows you to access files using your web browser.  In order to do
