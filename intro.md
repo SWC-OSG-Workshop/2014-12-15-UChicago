@@ -58,8 +58,10 @@ of 2010.  Here's how they can help:
 *   If you don't know what is open science grid, grid computing or distributed high through put computing, we'll show you what they are. 
 
 ### About Open Science Grid 
-The OSG provides common service and support for resource providers and scientific institutions using a distributed fabric of high throughput computational services. The OSG does not own resources but provides software and services to users and resource providers alike to enable the opportunistic usage and sharing of resources. The OSG is jointly funded by the Department of Energy and the National Science Foundation.
+The OSG provides common service and support for resource providers and scientific institutions using a distributed fabric of high throughput computational services. The OSG does not own resources but provides software and services to users and resource providers alike to enable the opportunistic usage and sharing of resources. 
 
+To find out more, please visit the [http://www.opensciencegrid.org/](Open Science Grid Organization) 
+[http://https://confluence.grid.iu.edu/display/CON/Home](Open Science Grid Documentation Page) 
 ### About  Software Carpentry
 
 Software Carpentry is an open source project.
@@ -88,6 +90,11 @@ or read
 or [our most popular blog posts](http://software-carpentry.org/blog/index.html#popular).
 
 #####Acknowledgments
+
+
+OSG is jointly funded by 
+*   [Department of Energy]  
+*   [National Science Foundation]
 
 Software Carpentry has been made possible by the generous support of:
 
