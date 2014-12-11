@@ -7,7 +7,7 @@ title: Troubleshooting failed jobs
 
 #### Objectives
 *   Learn how to troubleshoot failed jobs.
-*   Learn how to periodically retry the failed jobs.
+*   Learn how to periodically retry failed jobs.
 </div>
 
 <h2>Overview </h2> 
