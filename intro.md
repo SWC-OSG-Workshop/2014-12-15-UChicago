@@ -60,7 +60,7 @@ of 2010.  Here's how they can help:
 ### About Open Science Grid 
 The OSG provides common service and support for resource providers and scientific institutions using a distributed fabric of high throughput computational services. The OSG does not own resources but provides software and services to users and resource providers alike to enable the opportunistic usage and sharing of resources. 
 
-To find out more, please visit the [http://www.opensciencegrid.org/](Open Science Grid Organization) 
+To find out more, please visit the [http://www.opensciencegrid.org/](Open Science Grid Organization) or  
 [http://https://confluence.grid.iu.edu/display/CON/Home](Open Science Grid Documentation Page) 
 
 ### About  Software Carpentry
@@ -99,7 +99,7 @@ OSG is jointly funded by
 *   [National Science Foundation](http://www.nsf.gov/)
 
 We also thank Computation Institute, University of Chicago for building and running the first 
-version of the workshop. 
+version of the joint Software Carpentry/Open Science Grid workshop. 
 
 Software Carpentry has been made possible by the generous support of:
 
