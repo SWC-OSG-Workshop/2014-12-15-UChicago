@@ -11,7 +11,7 @@ title: Troubleshooting failed jobs
 </div>
 
 <h2>Overview </h2> 
-We will discuss how to check the job failures and ways to correct the failures.  
+In this lesson, we'll learn how to troubleshoot jobs that never start or fail in unexpected ways. 
 
 <h2> Troubleshooting techniques </h2> 
 
