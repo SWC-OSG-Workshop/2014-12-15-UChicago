@@ -58,10 +58,10 @@ of 2010.  Here's how they can help:
 *   If you don't know what is open science grid, grid computing or distributed high through put computing, we'll show you what they are. 
 
 ### About Open Science Grid 
-The OSG provides common service and support for resource providers and scientific institutions using a distributed fabric of high throughput computational services. The OSG does not own resources but provides software and services to users and resource providers alike to enable the opportunistic usage and sharing of resources. 
+The OSG provides common service and support for resource providers and scientific institutions using a distributed fabric of high throughput computational services. The OSG does not own resources but provides software and services to users and resource providers alike to enable the opportunistic usage and sharing of resources.  To find out more, please visit the [http://www.opensciencegrid.org/](Open Science Grid Organization).
 
-To find out more, please visit the [http://www.opensciencegrid.org/](Open Science Grid Organization) or  
-[http://https://confluence.grid.iu.edu/display/CON/Home](Open Science Grid Documentation Page) 
+#### OSG Connect
+The [http://osgconnect.net](OSG Connect service) provides a login service to the Open Science Grid infrastructure. It includes a job submission server based on HTCondor, a local scratch data service [http://stash.osgcoonect.net](Stash), and is integrated with [http://www.globus.org](Globus). User documentation is available in the [http://https://confluence.grid.iu.edu/display/CON/Home]("ConnectBook"). 
 
 ### About  Software Carpentry
 
