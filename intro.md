@@ -63,10 +63,14 @@ The OSG provides common service and support for resource providers and scientifi
 #### OSG Connect
 The [OSG Connect service](http://osgconnect.net) provides a login service to the Open Science Grid infrastructure. It includes a job submission server based on HTCondor, a local scratch data service [Stash](http://stash.osgconnect.net), and is integrated with [Globus](http://www.globus.org/) family of services for data transfer and publication. User documentation including  examples of running scientific applications on the OSG is available in the OSG  ["ConnectBook"](https://confluence.grid.iu.edu/display/CON/Home). 
 
-'''   '''
+#### OSG Acknowledgement
+
+The Open Science Grid is jointly funded by 
+*   [Department of Energy](http://www.energy.gov/)
+*   [National Science Foundation](http://www.nsf.gov/)
 
 
-### About  Software Carpentry
+### About Software Carpentry
 
 Software Carpentry is an open source project.
 Our instructors are volunteers,
@@ -93,15 +97,7 @@ or read
 [papers](http://arxiv.org/abs/1307.5448)
 or [our most popular blog posts](http://software-carpentry.org/blog/index.html#popular).
 
-####Acknowledgments
-
-The Open Science Gridis jointly funded by: 
-
-*   [Department of Energy](http://www.energy.gov/)
-*   [National Science Foundation](http://www.nsf.gov/)
-
-We also thank the Computation Institute, University of Chicago for hosting this joint Software Carpentry/Open Science Grid workshop. 
-
+#### Acknowledgments
 
 Software Carpentry has been made possible by the generous support of:
 
@@ -139,3 +135,4 @@ and [Ruth Lichterman](http://en.wikipedia.org/wiki/Ruth_Teitelbaum),
 <br/>
 the original programmers of the [ENIAC](http://en.wikipedia.org/wiki/ENIAC).
 </div>
+
