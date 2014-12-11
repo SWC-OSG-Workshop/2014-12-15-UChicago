@@ -37,7 +37,6 @@ Once done, you can change to the 'stash' directory in your home area:
 ~~~
 $ cd ~/stash    # This is your *stash* directory
 ~~~
-{:class="in"}
 
 This directory is an area on *stash* that you can use to store files and
 directories.  It functions just like any other UNIX directory although it has
