@@ -62,6 +62,7 @@ The OSG provides common service and support for resource providers and scientifi
 
 To find out more, please visit the [http://www.opensciencegrid.org/](Open Science Grid Organization) 
 [http://https://confluence.grid.iu.edu/display/CON/Home](Open Science Grid Documentation Page) 
+
 ### About  Software Carpentry
 
 Software Carpentry is an open source project.
