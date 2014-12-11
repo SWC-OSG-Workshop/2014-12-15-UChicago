@@ -6,13 +6,19 @@ title: Working Remotely
 <div class="objectives" markdown="1">
 
 #### Objectives
-*   Explain what is SSH
-*   Explain what an SSH key is
+*   Get an account on OSG
+*   Learn what is SSH
+*   Learn what an SSH key is
 *   Generate your own SSH key pair
 *   Add your SSH key to an remote server
-*   Learn how to use your SSH key
+*   Learn how to use your SSH key 
 
 </div>
+
+##Getting an account on OSG
+If you do not have an account on the Open Science Grid, please sign up, either in advance of the course or first thing in the morning.. It takes 5-10 minutes to complete the sign up process and about 30 minutes to get your account activated.
+
+##Secured Shell
 
 Let's take a closer look at what happens when we use the shell
 on a desktop or laptop computer.
