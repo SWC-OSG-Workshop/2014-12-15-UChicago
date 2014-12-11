@@ -98,6 +98,9 @@ OSG is jointly funded by
 *   [Department of Energy](http://www.energy.gov/)
 *   [National Science Foundation](http://www.nsf.gov/)
 
+We also thank Computation Institute, University of Chicago for building and running the first 
+version of the workshop. 
+
 Software Carpentry has been made possible by the generous support of:
 
 *   [Continuum Analytics](http://continuum.io/)
@@ -121,7 +124,7 @@ Software Carpentry has been made possible by the generous support of:
 *   [The University Consortium for Atmospheric Research](http://www.ucar.edu)
 *   [The University of Toronto](http://www.utoronto.ca)
 
-Special thanks go to Brent Gorda, who helped build and teach the first version of SWC course.
+SWC thanks Brent Gorda for helping to run the first version of SWC course.
 
 <div align="center" markdown="1">
 This book is dedicated to
