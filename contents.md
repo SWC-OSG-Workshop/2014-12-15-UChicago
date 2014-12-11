@@ -36,9 +36,10 @@ title: Lessons
 2.  [Getting access to OSG ](novice/DHTC/02-ssh.html)
 3.  [Software Resources on OSG](novice/DHTC/03-OSGtour.html)
 4.  [Submitting Jobs  - HTCondor](novice/DHTC/04-HTCondor-Submitting.html)
-5.  [Data Storage and Transfer](novice/DHTC/05-Stash.html)
-6.  [Large Scale Scientific Computing - DAGMAN](novice/DHTC/06-dagman.html)
-7.  [Troubleshooting Failed Jobs](novice/DHTC/07-TroubleShooting.html)
+5.  [Scaling Up Resources ](novice/DHTC/04a-ScalingUp.md)
+6.  [Data Storage and Transfer](novice/DHTC/05-Stash.html)
+7.  [Large Scale Scientific Computing - DAGMAN](novice/DHTC/06-dagman.html)
+8.  [Troubleshooting Failed Jobs](novice/DHTC/07-TroubleShooting.html)
 
 
 ## Further Materials
