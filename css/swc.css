@@ -303,3 +303,8 @@ table.bootcamps td.date {
 ul.checklist {
   list-style-image: url('/img/checkbox.png');
 }
+
+.navbar .nav > li > a {
+	padding-top: 0;
+	padding-bottom: 0;
+}
