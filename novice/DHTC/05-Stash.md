@@ -73,7 +73,7 @@ scp.  E.g:
 $ scp -r username@login.osgconnect.net:~/data/my-directory .
 ~~~
 
-<div style="background-color:rgba(0, 128, 0, 0.0470588); padding:40px 0;">
+<div style="background-color:rgba(0, 255, 0, 0.0470588); padding:40px 0;">
 As an exercise, create a directory with a file called hello_world_2 in the
 ~/data directory and copy it from stash to your local system.  Then create a
 directory called hello_world_3 on your local system and copy it to the data
