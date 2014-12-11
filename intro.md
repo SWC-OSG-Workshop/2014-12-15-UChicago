@@ -87,7 +87,7 @@ or read
 [papers](http://arxiv.org/abs/1307.5448)
 or [our most popular blog posts](http://software-carpentry.org/blog/index.html#popular).
 
-#Acknowledgments
+#####Acknowledgments
 
 Software Carpentry has been made possible by the generous support of:
 
