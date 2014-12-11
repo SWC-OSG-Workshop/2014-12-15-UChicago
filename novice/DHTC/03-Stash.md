@@ -48,7 +48,7 @@ $ echo "Hello world" > my_hello_world
 ~~~
 
 
-<h2> File Transfer to Stash </h2> 
+<h2> Accessing Stash using SCP </h2> 
 
 We can transfer files to stash using scp or Globus. First, let's 
 look at transferring files using scp.  Scp allows you to transfer files and
@@ -79,7 +79,49 @@ directory.
 
 {:class="in"}
 
-<h2> Downloading data from Stash </h2> 
+<h2> Accessing Stash using Globus</h2>
+An alternate method for accessing *stash* is to use Globus.  Globus allows you
+to initiate transfers between Globus endpoints and will handle the actual file
+and directory transfers transparently without needing further input from you.
+When the transfer is complete, Globus will send a notification to you indicating
+this.
+
+Let's transfer a file from your laptop to Globus.  First go to the [Globus
+page](https://www.globus.org/globus-connect-personal) and download and install
+the globus connect personal installer specific to your system.  
+
+While that's running, you'll need to get a setup key from Globus in order to
+setup the Globus Connect Personal software.  
+   * First login to [Globus](http://www.globus.org) at www.globus.org using your
+     OSG Connect username and password
+   * Next go to this [page](https://www.globusonline.org/xfer/ManageEndpoints?globus_connect=true)
+   * Enter a name for your endpoint on the page
+   * Click on "Generate setup Key"
+   * Select the key and copy the key
+
+Finally, start the Globus online personal software that you just installed.  The
+installer will ask for the setup key that you obtained from the Globus website.
+At this point, the install and setup of Globus Connect Personal is complete.
+
+<h2>Accessing Stash using HTTP</h2>
+*Stash* also allows you to access files using your web browser.  In order to do
+this, you'll need to put your file in *~/public* or *~/data/public* (the two locations 
+point to the same directory). Any file or directory that is placed 
+here  will be made available in the *Stash* webserver.  Let's make a file
+available using the *Stash* webserver
+
+~~~
+$ cd ~/public
+$ echo "This is served over the web" > web-file
+~~~
+
+Now go to http://stash.osgconnect.net/+username/ in your browser.  You should
+see the file in the listing.  Clicking on the file should give you the contents.
+
+Now, try creating a file called my-web-file and make it available through the
+*Stash* webserver.
+
+<h2> Accessing Stash using HTTP in compute jobs</h2> 
 
 Let us do an example calculation to understand the use of *stash* and how we download 
 the data from the web. We will peform 
