@@ -15,38 +15,68 @@ title: Data storage and transfer
 In this lesson, we will learn the basics of data storage and transfer on OSG Connect. 
 
 <h2> Stash </h2>
-Stash is a distributed filesystem for temporary storage on OSG Connect. You can put any input or output files here.
+OSG Connect provides a storage system called Stash.  Stash provides a place to
+store data needed for jobs or output from jobs in the medium term.  Since
+*stash* is not backed up, you should transfer job outputs from stash to your
+local system as soon as practical.
 
-First, log in to OSG Connect:
+This lesson will go over accessing *stash* using the OSG Connect login node as
+well as other methods such as Globus, and HTTP.
+<h2>Exploring the Stash system</h2>
+
+First, we'll look at accessing *Stash* from the login node. You'll need to log
+in to OSG Connect:
 ~~~
 ssh username@login.osgconnect.net #Connect to the login node with your username
 passwd:       # your password
 ~~~
 
-Once done, you can change to the 'data' directory in your home area:
+Once done, you can change to the 'stash' directory in your home area:
 ~~~
-$ cd ~/data    # This is your *stash* directory
+$ cd ~/stash    # This is your *stash* directory
 ~~~
 {:class="in"}
 
-You can also make data on *stash* publically available on the web. Any data copied or moved to the directory *~/data/public* can be accessed here:
+This directory is an area on *stash* that you can use to store files and
+directories.  It functions just like any other UNIX directory although it has
+additional functions that we'll go over shortly.
 
+For future use, let's create a file in *stash*:
 ~~~
-http://stash.osgconnect.net/+yourusername.
+$ cd ~/stash
+$ echo "Hello world" > my_hello_world
 ~~~
 
 
 <h2> File Transfer to Stash </h2> 
 
-We can transfer files from our laptop to *stash* with scp, sftp, or 
-Globus Connect. For small files (<50MB), it is fine to use scp or sftp utilities. For larger files 
-or when your access may be intermittent, we recommend using Globus.
- 
-To transfer a file called "BigData.tar.gz" via scp from your local laptop to *stash*
+We can transfer files to stash using scp or Globus. First, let's 
+look at transferring files using scp.  Scp allows you to transfer files and
+directories from your OSG Connect account using your ssh credentials.  It works
+with any unix file or directory is not specific to *stash*.
+
+To transfer a file from *stash* using scp, you'll need to run scp with the
+source and destination.  Files on remote systems are indicated using
+user@machine:/path/to/file .  Let's copy the file we just created from stash to
+our local system:
 
 ~~~
-scp BigData.tar.gz username@login.osgconnect.net:~/data/.  #Transfers the file "BigData.tar.gz" using secured copy.
+$ scp username@login.osgconnect.net:~/data/my_hello_world .
 ~~~
+
+As you can see, scp uses similar syntax to the cp command that you were shown
+previously.  To copy directories using scp, you'll just pass the -r option to
+scp.  E.g:
+
+ ~~
+$ scp -r username@login.osgconnect.net:~/data/my-directory .
+~~~
+
+As an exercise, create a directory with a file called hello_world_2 in the
+~/data directory and copy it from stash to your local system.  Then create a
+directory called hello_world_3 on your local system and copy it to the data
+directory.
+
 {:class="in"}
 
 <h2> Downloading data from Stash </h2> 
