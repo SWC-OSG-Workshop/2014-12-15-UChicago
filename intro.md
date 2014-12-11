@@ -89,12 +89,13 @@ or read
 [papers](http://arxiv.org/abs/1307.5448)
 or [our most popular blog posts](http://software-carpentry.org/blog/index.html#popular).
 
-#####Acknowledgments
+####Acknowledgments
 
 
 OSG is jointly funded by 
-*   [Department of Energy]  
-*   [National Science Foundation]
+
+*   [Department of Energy](http://www.energy.gov/)
+*   [National Science Foundation](http://www.nsf.gov/)
 
 Software Carpentry has been made possible by the generous support of:
 
