@@ -1,15 +1,12 @@
 ---
 layout: lesson
 root: ../..
-title: Softwar Resources on OSG 
+title: Software Resources on OSG 
 ---
 <div class="objectives" markdown="1">
 
 #### Objectives
-*   Get to know what is Open Science Grid
-*   What resources are open to academic researchers
-*   Computation that is a good match for OSG Connect
-*   Computation that is NOT a good match for OSG Connect
+*   Learn what software resources are available and how to access them.
 
 </div>
 
@@ -140,8 +137,6 @@ calculations on OSG.
 <div class="keypoints" markdown="1">
 
 #### Key Points
-*   OSG resources are distributed across 120 institutions and  supports scientific computing of 2 million core CPU hours per day.   
-*   Many scientific applications are installed on OSG and available for the users. 
 *   To use an existing application use the module load command. 
 *   The command - *tutorial* helps to access the existing tutorials.  
 </div>
