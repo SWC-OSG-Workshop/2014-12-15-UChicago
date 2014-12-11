@@ -11,5 +11,5 @@ title: Distributed Computing on Open Science Grid
 4.  [Submitting Jobs  - HTCondor](02-HTCondor-Submitting.html)
 5.  [Data Storage and Transfer](03-Stash.html)
 6.  [Large Scale Scientific Computing - DAGMAN](04-dagman.html)
-7.  [Troubleshooting Failed Jobs](05-TroubleShooting.html)
+7.  [Troubleshooting](05-TroubleShooting.html)
 </div>
