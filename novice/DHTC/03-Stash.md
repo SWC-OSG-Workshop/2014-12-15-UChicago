@@ -97,6 +97,7 @@ the globus connect personal installer specific to your system.
 
 While that's running, you'll need to get a setup key from Globus in order to
 setup the Globus Connect Personal software.  
+
 *   First login to [Globus](http://www.globus.org) at www.globus.org using your OSG Connect username and password
 *   Next go to this [page](https://www.globusonline.org/xfer/ManageEndpoints?globus_connect=true)
 *   Enter a name for your endpoint on the page (remember this!)
