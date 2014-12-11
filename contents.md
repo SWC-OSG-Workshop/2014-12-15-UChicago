@@ -39,7 +39,7 @@ title: Lessons
 5.  [Scaling Up Resources ](novice/DHTC/04a-ScalingUp.html)
 6.  [Data Storage and Transfer](novice/DHTC/05-Stash.html)
 7.  [Large Scale Scientific Computing - DAGMAN](novice/DHTC/06-dagman.html)
-8.  [Troubleshooting Failed Jobs](novice/DHTC/07-TroubleShooting.html)
+8.  [Troubleshooting](novice/DHTC/07-TroubleShooting.html)
 
 
 ## Further Materials
