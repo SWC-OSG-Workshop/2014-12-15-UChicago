@@ -120,8 +120,7 @@ Software Carpentry has been made possible by the generous support of:
 *   [The University Consortium for Atmospheric Research](http://www.ucar.edu)
 *   [The University of Toronto](http://www.utoronto.ca)
 
-Special thanks go to Brent Gorda,
-who helped build and teach the first version of this course.
+Special thanks go to Brent Gorda, who helped build and teach the first version of SWC course.
 
 <div align="center" markdown="1">
 This book is dedicated to
