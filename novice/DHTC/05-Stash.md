@@ -50,7 +50,7 @@ $ echo "Hello world" > my_hello_world
 ~~~
 
 
-<h2> Accessing Stash using SCP </h2> 
+<h2>Transferring files to and from Stash using SCP </h2> 
 
 We can transfer files to stash using scp. First, let's 
 look at transferring files using scp.  Scp is a counterpart to ssh that allows for
@@ -118,7 +118,7 @@ Now try copying a file to *stash* from your laptop using Globus.  Then try
 copying the my_hello_world file from *Stash* from *Stash* to your laptop using
 Globus.
 
-<h2>Accessing Stash using HTTP</h2>
+<h2>Transferring files from Stash using HTTP</h2>
 *Stash* also allows you to access files using your web browser.  In order to do
 this, you'll need to put your file in *~/public* or *~/data/public* (the two locations 
 point to the same directory). Any file or directory that is placed 
@@ -136,7 +136,7 @@ see the file in the listing.  Clicking on the file should give you the contents.
 Now, try creating a file called my-web-file and make it available through the
 *Stash* webserver.
 
-<h2> Accessing Stash using HTTP in compute jobs</h2> 
+<h2>Using data on Stash in compute jobs</h2> 
 
 Let us do an example calculation to understand the use of *stash* and how we download 
 the data from the web. We will peform 
@@ -224,6 +224,6 @@ The above lines indicate the NAMD simulation was successful.
 #### Key Points
 * Data on *stash* is quickly accessed by the worker machines. 
 * *stash* is located at ~/data on login.osgconnect.net. 
-* *scp* and *rsync* are useful tools for data transfer.
+* *scp* and *globus* are useful tools for data transfer.
 </div>
 
