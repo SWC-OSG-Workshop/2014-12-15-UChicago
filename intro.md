@@ -61,7 +61,7 @@ of 2010.  Here's how they can help:
 The OSG provides common service and support for resource providers and scientific institutions using a distributed fabric of high throughput computational services. The OSG does not own resources but provides software and services to users and resource providers alike to enable the opportunistic usage and sharing of resources.  To find out more, please visit the [Open Science Grid](http://www.opensciencegrid.org/) consortium page.
 
 #### OSG Connect
-The [OSG Connect service](http://osgconnect.net) provides a login service to the Open Science Grid infrastructure. It includes a job submission server based on HTCondor, a local scratch data service [Stash](http://stash.osgcoonect.net), and is integrated with [Globus](http://www.globus.org/) family of services for data transfer and publication. User documentation including  examples of running scientific applications on the OSG is available in the OSG  ["ConnectBook"](https://confluence.grid.iu.edu/display/CON/Home). 
+The [OSG Connect service](http://osgconnect.net) provides a login service to the Open Science Grid infrastructure. It includes a job submission server based on HTCondor, a local scratch data service [Stash](http://stash.osgconnect.net), and is integrated with [Globus](http://www.globus.org/) family of services for data transfer and publication. User documentation including  examples of running scientific applications on the OSG is available in the OSG  ["ConnectBook"](https://confluence.grid.iu.edu/display/CON/Home). 
 
 
 ### About  Software Carpentry
