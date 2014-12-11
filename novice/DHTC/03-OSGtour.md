@@ -1,15 +1,12 @@
 ---
 layout: lesson
 root: ../..
-title: Introduction to Open Science Grid 
+title: Software Resources on OSG 
 ---
 <div class="objectives" markdown="1">
 
 #### Objectives
-*   Get to know what is Open Science Grid
-*   What resources are open to academic researchers
-*   Computation that is a good match for OSG Connect
-*   Computation that is NOT a good match for OSG Connect
+*   Learn what software resources are available and how to access them.
 
 </div>
 
@@ -108,10 +105,10 @@ language on OSG Connect. By the end of the tutorial:
    * You will know how to use the HAS_CVMFS_oasis_opensciencegrid_org job steering requirement. 
 
 Tutorial 'R' is set up.  To begin:
-     cd ~/osg-R
+     cd tutorial-R
 ~~~ 
 
-The "tutorial R" command creates a directory "osg-R" containing the neccessary script and input files. 
+The "tutorial R" command creates a directory "tutorial-R" containing the neccessary script and input files. 
 
 ~~~
 mciP.R      # The example R script file
@@ -140,8 +137,6 @@ calculations on OSG.
 <div class="keypoints" markdown="1">
 
 #### Key Points
-*   OSG resources are distributed across 120 institutions and  supports scientific computing of 2 million core CPU hours per day.   
-*   Many scientific applications are installed on OSG and available for the users. 
 *   To use an existing application use the module load command. 
 *   The command - *tutorial* helps to access the existing tutorials.  
 </div>

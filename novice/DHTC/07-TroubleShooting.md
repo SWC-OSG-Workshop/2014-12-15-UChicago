@@ -17,23 +17,20 @@ We will discuss how to check the job failures and ways to correct the failures.
 
 <h3> Diagnostics with condor_q  </h3> 
 The *condor_q* command shows the status of the jobs and it can be used to diagnose why jobs are not 
-running. The *condor_q* command with the option "-better-analyze" will return detailed
-information about the jobs. Since OSG Connect sends jobs to many places, we also need to specify a pool name with the "-pool" flag
+running. Using the *-better-analze* flag with *condor_q* can show you detailed information about why a job isn't starting. Since OSG Connect sends jobs to many places, we also need to specify a pool name with the "-pool" flag. 
 
 ~~~
-$ condor_q -better-analyze JOB-ID -pool osg-flock.grid.iu.edu
+$ condor_q -better-analyze JOB-ID -pool POOL-ID
 ~~~
 
-The detailed information about a job may help us to identify why a job is not running properly. 
-
-Let us do an example. 
+Let's do an example. First we'll need to login as usual, and then load the 'tutorial-error101' command. 
 
 ~~~
 $ ssh username@login.osgconnect.net   #login 
 $ passwd                              
 
 $ tutorial error101
-$ cd tutorial-erro101
+$ cd tutorial-error101
 $ nano error101_job.submit
 
 $condor_submit error101_job.submit 
