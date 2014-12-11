@@ -73,12 +73,10 @@ scp.  E.g:
 $ scp -r username@login.osgconnect.net:~/data/my-directory .
 ~~~
 
-```
 As an exercise, create a directory with a file called hello_world_2 in the
 ~/data directory and copy it from stash to your local system.  Then create a
 directory called hello_world_3 on your local system and copy it to the data
 directory.
-```
 
 <h2> Accessing Stash using Globus</h2>
 An alternate method for accessing *stash* is to use Globus.  Globus allows you
