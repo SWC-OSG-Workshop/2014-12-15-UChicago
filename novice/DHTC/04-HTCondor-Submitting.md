@@ -19,7 +19,6 @@ to describe how to execute the program and transfer the output data.
 <h2>Login to OSG Connect </h2>
 
 First, we log in to OSG Connect:
-{:class="in"}
 
 ~~~
 $ ssh username@login.osgconnect.net  # username is your username
@@ -29,8 +28,8 @@ $ passwd:                            # enter your password
 We will get the relevant example files using the *tutorial* command. Run the quickstart tutorial:
 
 ~~~
-$ tutorial quickstart #creates a directory "tutorial-quickstart".
-$ cd ~/tutorial-quickstart #relevant script and input files are inside this directory
+$ tutorial quickstart                # creates a directory "tutorial-quickstart".
+$ cd ~/tutorial-quickstart           # relevant script and input files are inside this directory
 ~~~
 
 We will look at two files in detail: "short.sh" and "tutorial01"
