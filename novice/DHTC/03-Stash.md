@@ -117,6 +117,10 @@ file on your laptop and click on the right arrow on the top of the screen to
 start a transfer to *stash*. You can transfer files or directories to your
 laptop by selecting it in the *stash* window and selecting the left arrow.
 
+Now try copying a file to *stash* from your laptop using Globus.  Then try
+copying the my_hello_world file from *Stash* from *Stash* to your laptop using
+Globus.
+
 <h2>Accessing Stash using HTTP</h2>
 *Stash* also allows you to access files using your web browser.  In order to do
 this, you'll need to put your file in *~/public* or *~/data/public* (the two locations 
