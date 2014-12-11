@@ -26,12 +26,14 @@ well as other methods such as Globus, and HTTP.
 
 First, we'll look at accessing *Stash* from the login node. You'll need to log
 in to OSG Connect:
+
 ~~~
 ssh username@login.osgconnect.net #Connect to the login node with your username
 passwd:       # your password
 ~~~
 
 Once done, you can change to the 'stash' directory in your home area:
+
 ~~~
 $ cd ~/stash    # This is your *stash* directory
 ~~~
@@ -42,6 +44,7 @@ directories.  It functions just like any other UNIX directory although it has
 additional functions that we'll go over shortly.
 
 For future use, let's create a file in *stash*:
+
 ~~~
 $ cd ~/stash
 $ echo "Hello world" > my_hello_world
@@ -68,7 +71,7 @@ As you can see, scp uses similar syntax to the cp command that you were shown
 previously.  To copy directories using scp, you'll just pass the -r option to
 scp.  E.g:
 
- ~~
+~~~
 $ scp -r username@login.osgconnect.net:~/data/my-directory .
 ~~~
 
