@@ -23,7 +23,7 @@ running. Using the *-better-analze* flag with *condor_q* can show you detailed i
 $ condor_q -better-analyze JOB-ID -pool POOL-NAME
 ~~~
 
-Let's do an example. First we'll need to login as usual, and then load the 'tutorial-error101' command. 
+Let's do an example. First we'll need to login as usual, and then load the tutorial *error101*.
 
 ~~~
 $ ssh username@login.osgconnect.net
