@@ -70,6 +70,7 @@ $ nano error101_job.submit
 ~~~
 
 Finally, resubmit the job:
+
 ~~~
 $ condor_submit error101_job.submit
 ~~~
