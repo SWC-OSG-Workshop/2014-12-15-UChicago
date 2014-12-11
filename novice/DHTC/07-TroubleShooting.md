@@ -7,11 +7,11 @@ title: Troubleshooting failed jobs
 
 #### Objectives
 *   Learn how to troubleshoot failed jobs.
-*   Learn how to periodically retry the failed jobs.
+*   Learn how to periodically retry failed jobs.
 </div>
 
 <h2>Overview </h2> 
-We will discuss how to check the job failures and ways to correct the failures.  
+In this lesson, we'll learn how to troubleshoot jobs that never start or fail in unexpected ways. 
 
 <h2> Troubleshooting techniques </h2> 
 
@@ -20,30 +20,26 @@ The *condor_q* command shows the status of the jobs and it can be used to diagno
 running. Using the *-better-analze* flag with *condor_q* can show you detailed information about why a job isn't starting. Since OSG Connect sends jobs to many places, we also need to specify a pool name with the "-pool" flag. 
 
 ~~~
-$ condor_q -better-analyze JOB-ID -pool POOL-ID
+$ condor_q -better-analyze JOB-ID -pool POOL-NAME
 ~~~
 
 Let's do an example. First we'll need to login as usual, and then load the 'tutorial-error101' command. 
 
 ~~~
-$ ssh username@login.osgconnect.net   #login 
-$ passwd                              
+$ ssh username@login.osgconnect.net
 
 $ tutorial error101
 $ cd tutorial-error101
-$ nano error101_job.submit
-
-$condor_submit error101_job.submit 
+$ condor_submit error101_job.submit 
 ~~~
 
-Let us check the job status by
+We'll check the job status the normal way:
 
 ~~~
 condor_q username
 ~~~
 
-The submitted job remains in the idle state. The job is failed to go through the queue. Now we check the 
-output from *condor_q -better-analyze* that will give us additional detail. 
+For some reason, our job is still idle. Why? Try using *condor_q -better-analyze* to find out. Remember that you will also need to specify a pool name. In this case we'll use *osg-flock.grid.iu.edu*:
 
 ~~~
 $ condor_q -better-analyze JOB-ID -pool osg-flock.grid.iu.edu
@@ -63,20 +59,22 @@ Step    Matched  Condition
 [4]       14727  TARGET.HasFileTransfer
 ~~~
 
-
-By looking through the conditions listed, it becomes apparent that the job requesting a very 
-large memory, no machine available to meet the requirements. This is an error we introduced 
+By looking through the match conditions, we see that many nodes match our requests for the Linux operating system and the x86_64 architecture, but none of them match our requirement for 51200 MB of memory. This is an error we introduced 
 puposefully in the script by including a line *Requirements = (Memory >= 51200)* in the file 
-"error101_job.submit".   The job is removed from the queue and re-submited after 
-correcting the requirement in the submit file. 
+"error101_job.submit". 
+
+We want to edit the job submit file and change the requirements such that we only request 512 MB of memory. The requirements line should look like this: *Requirements = (Memory >= 512)*
 
 ~~~
-$ condor_rm JOB-ID #remove the specific job that has problem in matching the resources.
-$ nano file.submit # Edit the submit file and insert this line: Requirements = (Memory >= 512)
-$ condor_submit file.submit
+$ nano error101_job.submit
 ~~~
 
-or you can edit the resource requirement of a job while it is in the idle state. 
+Finally, resubmit the job:
+~~~
+$ condor_submit error101_job.submit
+~~~
+
+Alternatively, you can edit the resource requirements of the idle job in queue:
 
 ~~~
 condor_qedit JOB-ID Requirements 'Requirements = (Memory >= 512)' 
@@ -100,8 +98,7 @@ condor_ssh_to_job JOB-ID
 
 <h3> Held jobs and condor_release </h3>
 
-The jobs go to the held state for several reasons. One of them is due to the failure to transfer the output
-files. If this is the case, you might see the output of the analysis something as follows
+Occasionally, a job can fail in various ways and go into "Held" state. 
 
 ~~~
 $ condor_q -analyze 372993.0

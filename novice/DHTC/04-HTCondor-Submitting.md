@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: ../..
-title: HTCondor scripts  
+title: Job submission on OSG Connect  
 ---
 <div class="objectives" markdown="1">
 
