@@ -53,8 +53,14 @@ of 2010.  Here's how they can help:
     we'll show you how to break your code into modules that you can read, debug, and improve piece by piece.
 *   If you've ever spent days copying and pasting data in text files and spreadsheets,
     we'll show you how a database can do the work for you.
+*   If you have to access millions of CPU hours for your project without adding cost overhead, 
+    we'll show you how to do that via grid computing. 
+*   If you don't know what is open science grid, grid computing or distributed high through put computing, we'll show you what they are. 
 
-### About Us
+### About Open Science Grid 
+The OSG provides common service and support for resource providers and scientific institutions using a distributed fabric of high throughput computational services. The OSG does not own resources but provides software and services to users and resource providers alike to enable the opportunistic usage and sharing of resources. The OSG is jointly funded by the Department of Energy and the National Science Foundation.
+
+### About  Software Carpentry
 
 Software Carpentry is an open source project.
 Our instructors are volunteers,
