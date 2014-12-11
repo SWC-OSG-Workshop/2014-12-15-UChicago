@@ -52,10 +52,9 @@ $ echo "Hello world" > my_hello_world
 
 <h2> Accessing Stash using SCP </h2> 
 
-We can transfer files to stash using scp or Globus. First, let's 
-look at transferring files using scp.  Scp allows you to transfer files and
-directories from your OSG Connect account using your ssh credentials.  It works
-with any unix file or directory is not specific to *stash*.
+We can transfer files to stash using scp. First, let's 
+look at transferring files using scp.  Scp is a counterpart to ssh that allows for
+secure, encrypted file transfers between systems using your ssh credentials.    
 
 To transfer a file from *stash* using scp, you'll need to run scp with the
 source and destination.  Files on remote systems are indicated using
@@ -74,12 +73,12 @@ scp.  E.g:
 $ scp -r username@login.osgconnect.net:~/data/my-directory .
 ~~~
 
+```
 As an exercise, create a directory with a file called hello_world_2 in the
 ~/data directory and copy it from stash to your local system.  Then create a
 directory called hello_world_3 on your local system and copy it to the data
 directory.
-
-{:class="in"}
+```
 
 <h2> Accessing Stash using Globus</h2>
 An alternate method for accessing *stash* is to use Globus.  Globus allows you
