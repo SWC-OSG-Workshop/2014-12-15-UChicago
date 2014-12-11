@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: ../..
-title: Troubleshooting failed jobs
+title: Troubleshooting
 ---
 <div class="objectives" markdown="1">
 
