@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: ../..
-title: Introduction to Open Science Grid 
+title: Softwar Resources on OSG 
 ---
 <div class="objectives" markdown="1">
 
@@ -108,10 +108,10 @@ language on OSG Connect. By the end of the tutorial:
    * You will know how to use the HAS_CVMFS_oasis_opensciencegrid_org job steering requirement. 
 
 Tutorial 'R' is set up.  To begin:
-     cd ~/osg-R
+     cd tutorial-R
 ~~~ 
 
-The "tutorial R" command creates a directory "osg-R" containing the neccessary script and input files. 
+The "tutorial R" command creates a directory "tutorial-R" containing the neccessary script and input files. 
 
 ~~~
 mciP.R      # The example R script file
