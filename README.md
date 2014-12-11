@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ============================
 #Software Carpentry - Open Science Grid (SWC-OSG) Workshop
 ============================
