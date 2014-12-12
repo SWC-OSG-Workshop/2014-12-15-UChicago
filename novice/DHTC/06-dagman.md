@@ -6,27 +6,27 @@ title: Scientific Workflow Management - DAGMAN
 <div class="objectives" markdown="1">
 
 #### Objectives
-*   Learn what is DAGMAN?
-*   Learn how to write a DAGMAN script   
+*   Learn about DAGMan
+*   Learn how to write a DAGMan script   
 </div>
 
 <h2> Overview </h2> 
 
 
 In scientific computing, one may have to perform several computational tasks or 
-data manipulations that are inter releted in some order. Workflow management 
-systems help to deal with such tasks or data manipulations. DAGMan is one of the 
-early workflow managment system developed for distributed high throughput 
+data manipulations that are inter related. Workflow management 
+systems help to deal with such tasks or data manipulations. DAGMan is a workflow managment 
+system developed for distributed high throughput 
 computing. DAGMan (Directed Acyclic Graph Manager) handles computational jobs 
 that are mapped as a directed acyclic graph. In this section, we will learn how to 
-apply DAGMan to run a long time scale molecular dynmaics (MD) simulation. 
+apply DAGMan to run a set of molecular dynmaics (MD) simulations. 
 
-<h2> Running Long Time Scale MD Simulation with DAGMAN   </h2> 
+<h2> Running MD Simulation with DAGMAN   </h2> 
 
-At present, the recomended execution time to run a jobs on OSG is about 2-3 hours. Jobs
+At present, the recomended execution time to run a condor job on OSG is about 2-3 hours. Jobs
 requiring more than 2-3 hours, need to be submitted with the restart files. Manually 
 submitting small jobs repeatedly with restart files may not be practical in many 
-situations. DAGMan offers an elegant and simple solution to run set of jobs. With 
+situations. DAGMan offers an elegant and simple solution to run the set of jobs. With 
 the DAGMan script one could run a long time scale MD simulations of biomolecules. 
 
 In our example, we will break the MD simulation in four steps and run it through the 
@@ -45,9 +45,9 @@ parent of *A2* and job *A3* is parent of *A4*. In DAGMan script, this is express
 ~~~
 ######DAG file######    #comment
 Job A0 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submision script.
-Job A0 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submision script.
-Job A0 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submision script.
-Job A0 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submision script.
+Job A1 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submision script.
+Job A2 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submision script.
+Job A3 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submision script.
 PARENT A0 CHILD A1  #Inter Dependency between Job A0 and A1
 PARENT A1 CHILD A2  #Inter Dependency between Job A1 and A2 
 PARENT A2 CHILD A3  #Inter Dependency between Job A2 and A3
@@ -72,7 +72,7 @@ The directory "tutorial-dagman-namd" contains all the neccessary files. The file
 HTCondor script files that execute the files "namd_run_job0.sh,...".
 
 
-Now we submit the DAGMan script on OSG. 
+Now we submit the DAGMan job.  
 
 ~~~
 $ condor_submit_dag linear.dag 
@@ -90,7 +90,7 @@ Submitting job(s).
 
 ~~~
 
-We can check the job status, by typing
+Note that the DAG file is submitted through  *condor_submit_dag*. We can check the job status, by typing
 
 ~~~
 $ condor_q username
@@ -111,13 +111,41 @@ OutFilesFromNAMD_job3.tar.gz". If the output files are not empty, the jobs are
 successfully completed. Of course, a through check up requires looking at the ouput 
 results.  
 
-The example described above has  simple inter relation among the jobs. DAGMan is 
-capable of dealing with the acyclic graph jobs with complex inter relations. Also 
-DAGMan can help with the resubmission of uncompleted portions of a DAG, when one 
-or more nodes result in failure. Also  several dags can be combined into a 
-single dag.  
 
+In the above examples, the set of jobs have simple inter relationship.  Indeed,  DAGMan is capable of dealing with set of jobs with complex inter relations.  One may also write a DAG file for set of DAG files where each of the DAG file contains the workflow for set of condor jobs.  Also DAGMan can help with the resubmission of uncompleted portions of a DAG, when one or more nodes result in failure.  
 
+###Job Retry###
+
+Say for example,  job A2 in the above example is  important and you want to eliminate the possibility as much as possible. One way is to re-try the specific job A2 a few times. DAGMan would re-try  failed jobs when you specify the following line at the end of dag file.
+
+~~~ 
+$ nano linear.dag // open the linear.dag file
+ 
+### At the end of the linear.dat file
+ 
+Retry A2 3 //This would re-try job A2 for three times in case of failures.
+If you want to retry jobs A2 and A3 for 7 times,  edit the linear.dag 
+ 
+### At the end of the linear.dag file
+Retry A2 7 //This would re-try job A2 for seven times in case of failures.
+Retry A3 7 //This would re-try job A3 for seven times in case of failures.
+~~~
+ 
+###Rescue DAG###
+
+In case DAGMan  does not complete the set of jobs, it would create a rescue DAG file with a 
+suffix ".rescue". The rescue DAG file contains the information about where to restart 
+the jobs. Say for example, in our workflow of four linear jobs, the jobs A0 and A1 are 
+finished and A2 is incomplete. In such a case we do not want to start executing the jobs 
+all over again rather we want to start from Job A2. This information is embedded 
+in the rescue dag file. In our example of linear.dag, the rescue dag file would 
+be "linear.dag.rescue". So we re-submit the rescue dag file 
+as follows
+
+~~~
+$ condor_submit_dag linear.dag.rescue
+~~~
+ 
 <div class="keypoints" markdown="1">
 
 #### Keypoints
