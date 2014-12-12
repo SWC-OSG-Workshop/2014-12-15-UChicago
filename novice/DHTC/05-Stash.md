@@ -78,7 +78,7 @@ $ scp -r username@login.osgconnect.net:~/data/my-directory .
 
 As an exercise, create a directory with a file called <tt>hello_world_2</tt> in the
 <tt>~/data</tt> directory and copy it from Stash to your local system.  Then create a
-directory called <tt>hello_world_3</tt> on your local system and copy it to the data
+directory called <tt>hello_world_3</tt> on your local system and copy it to the `data`
 directory.
 </div>
 
@@ -114,7 +114,7 @@ Transfer menu, select Start Transfer.  For the first endpoint, enter username#na
 where name is the name you choose for the endpoint above. You should now see the
 files from your laptop displayed.  For the second endpoint, enter
 `osgconnect#stash` and hit enter.  You should now see the contents of your home
-directory on OSG Connect.  Now double click on the data directory.  Select a
+directory on OSG Connect.  Now double click on the `data` directory.  Select a
 file on your laptop and click on the right arrow on the top of the screen to
 start a transfer to Stash. You can transfer files or directories to your
 laptop by selecting it in the Stash window and selecting the left arrow.
