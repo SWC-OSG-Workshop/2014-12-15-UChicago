@@ -149,11 +149,18 @@ This can be accomplished by adding the following lines to your submit file:
 # Send the job to Held state on failure. 
 on_exit_hold = (ExitBySignal == True) || (ExitCode != 0)  
 
-# Periodically retry the jobs for 3 times with an interval 1 hour.   
-periodic_release =  (NumJobStarts < 3) && ((CurrentTime - EnteredCurrentStatus) > (60*60))
+# Periodically retry the jobs every 60 seconds, up to a maximum of 5 retries.
+periodic_release =  (NumJobStarts < 5) && ((CurrentTime - EnteredCurrentStatus) > 60)
 ~~~
 
+<div style="background-color:rgba(0, 255, 0, 0.0470588); padding:10px 0;"><h3> On your own </h3>
+1) Run `tutorial exitcode` to download a copy of this exercise. This tutorial contains a simple script that has roughly a 50/50 chance of exiting 1 or 0.
+2) Submit the exitcode.submit job
+3) Edit the job, uncomment the line containing `periodic release`, and resubmit your job. 
 
+How many jobs go into Held state in part 2? 
+
+In part 3, how many jobs remain in Held state after 10 minutes or so?</div>
 
 
 <div class="keypoints" markdown="1">
