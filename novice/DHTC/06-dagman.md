@@ -25,6 +25,7 @@ apply DAGMan to run a set of molecular dynamics (MD) simulations.
 
 <div>
    <img alt="Software Carpentry banner" src="{{page.root}}/novice/DHTC/DAGManImages/Slide1.png" width="300">
+   <img alt="Software Carpentry banner" src="{{page.root}}/novice/DHTC/DAGManImages/Slide5.png" width="300">
 </div>
 
 <h2> Running MD Simulation with DAGMan   </h2> 
@@ -58,9 +59,9 @@ parent of *A2* and job *A3* is parent of *A4*. In DAGMan script, this is express
 ~~~
 ######DAG file######    #comment
 Job A0 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submission script.
-Job A1 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submission script.
-Job A2 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submission script.
-Job A3 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submission script.
+Job A1 namd_run_job1.submit  #Job keyword, Job Name, Condor Job submission script.
+Job A2 namd_run_job2.submit  #Job keyword, Job Name, Condor Job submission script.
+Job A3 namd_run_job3.submit  #Job keyword, Job Name, Condor Job submission script.
 PARENT A0 CHILD A1  #Inter Dependency between Job A0 and A1
 PARENT A1 CHILD A2  #Inter Dependency between Job A1 and A2 
 PARENT A2 CHILD A3  #Inter Dependency between Job A2 and A3
