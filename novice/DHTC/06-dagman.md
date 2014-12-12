@@ -58,6 +58,8 @@ acyclic graph. In DAGMan language, job *A0* is parent of job *A1*,  job *A1* is
 parent of *A2* and job *A3* is parent of *A4*. In the DAG file `linear.dag`, this is expressed as 
 
 ~~~
+$ nano linear.dag #open the linear.dag file
+
 ######DAG file######    #comment
 Job A0 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submission script.
 Job A1 namd_run_job1.submit  #Job keyword, Job Name, Condor Job submission script.
@@ -78,8 +80,8 @@ The above DAGMan script and the necessary files are available to the user
 by invoking the *tutorial* command. 
 
 ~~~
-tutorial dagman-namd
-cd tutorial-dagman-namd
+$ tutorial dagman-namd
+$ cd tutorial-dagman-namd
 ~~~
 
 The directory `tutorial-dagman-namd` contains all the necessary files. The file 
@@ -136,7 +138,7 @@ means we have two parallel DAGs that are represented as A0->A1 and B0->B1. The a
 data dependency between the jobs.  This example is located at 
 
 ~~~
-cd tutorial-dagman-namd/TwoLinearDAG
+$ cd tutorial-dagman-namd/TwoLinearDAG
 ~~~
 
 The directory contains the input files, job submission files and execution scripts of the 
@@ -158,7 +160,7 @@ The input files, job submission files and execution scripts of the
 jobs are located at 
 
 ~~~
-cd tutorial-dagman-namd/X-DAG
+$ cd tutorial-dagman-namd/X-DAG
 ~~~
 
 Again we are missing the DAG file here. See if you can write the DAGfile for this example 
