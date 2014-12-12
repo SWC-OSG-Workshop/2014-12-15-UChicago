@@ -22,7 +22,7 @@ that are mapped as a directed acyclic graph. In this section, we will learn how 
 apply DAGMan to run a set of molecular dynamics (MD) simulations. 
 
 
-<div class="objectives" markdown="1">
+<div >
    <img alt="Software Carpentry banner" src="{{page.root}}/novice/DHTC/DAGManImages/Slide1.png" width="300">
 </div>
 
