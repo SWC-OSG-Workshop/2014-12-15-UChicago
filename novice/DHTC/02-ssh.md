@@ -3,6 +3,7 @@ layout: lesson
 root: ../..
 title: Getting Access to OSG 
 ---
+
 <div class="objectives" markdown="1">
 
 #### Objectives
