@@ -76,9 +76,9 @@ $ scp -r username@login.osgconnect.net:~/data/my-directory .
 <div style="background-color:rgba(0, 255, 0, 0.0470588); padding:40px 0;">
 <h5>User Exercise </h5>
 
-As an exercise, create a directory with a file called `hello_world_2` in the
-`~/data` directory and copy it from Stash to your local system.  Then create a
-directory called `hello_world_3` on your local system and copy it to the data
+As an exercise, create a directory with a file called <tt>hello_world_2<tt> in the
+<tt>~/data</tt> directory and copy it from Stash to your local system.  Then create a
+directory called <tt>hello_world_3</tt> on your local system and copy it to the data
 directory.
 </div>
 
@@ -122,12 +122,12 @@ laptop by selecting it in the Stash window and selecting the left arrow.
 <div style="background-color:rgba(0, 255, 0, 0.0470588); padding:40px 0;">
 <h5> User Exercise </h5>
 Now try copying a file to Stash from your laptop using Globus.  Then try
-copying the my_hello_world file from Stash from Stash to your laptop using
+copying the <tt>my_hello_world<\tt> file from Stash from Stash to your laptop using
 Globus.
 </div>
 <h2>Transferring files from Stash using HTTP</h2>
 Stash also allows you to access files using your web browser.  In order to do
-this, you'll need to put your file in `_~/public_`or `_~/data/public_` (the two locations 
+this, you'll need to put your file in `~/public`or `~/data/public` (the two locations 
 point to the same directory). Any file or directory that is placed 
 here  will be made available in the Stash webserver.  Let's make a file
 available using the Stash webserver
