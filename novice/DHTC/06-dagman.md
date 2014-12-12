@@ -14,12 +14,13 @@ title: Workflow Management - DAGMan
 
 
 In scientific computing, one may have to perform several computational tasks or 
-data manipulations that are inter related. Workflow management 
+data manipulations that are inter dependent. Workflow management 
 systems help to deal with such tasks or data manipulations. DAGMan is a workflow management 
 system developed for distributed high throughput 
 computing. DAGMan (Directed Acyclic Graph Manager) handles computational jobs 
-that are mapped as a directed acyclic graph. In a directed acyclic graph, the nodes (jobs) 
-have specific directions and they do not form loops. In this section, we will learn how to 
+that are mapped as a directed acyclic graph. Cyclic graph forms loop while acyclic graph does 
+not form a loop. In a directed acyclic graph, the connections between the nodes (jobs) have a 
+specific direction in addition to not forming loops. In this section, we will learn how to 
 apply DAGMan to run a set of molecular dynamics (MD) simulations. 
 
 
@@ -54,7 +55,7 @@ job *A0* serves as an input for the job *A1* and so forth. The input and output
 dependencies of the jobs are such that they need to be progressed in a linear 
 fashion:  *A0-->A1-->A2-->A3*. These set of jobs clearly represents an 
 acyclic graph. In DAGMan language, job *A0* is parent of job *A1*,  job *A1* is 
-parent of *A2* and job *A3* is parent of *A4*. In DAGMan script, this is expressed as 
+parent of *A2* and job *A3* is parent of *A4*. In the DAG file `linear.dag`, this is expressed as 
 
 ~~~
 ######DAG file######    #comment
@@ -81,9 +82,9 @@ tutorial dagman-namd
 cd tutorial-dagman-namd
 ~~~
 
-The directory "tutorial-dagman-namd" contains all the necessary files. The file 
-"linear.dag" is the DAGMan script. The files "namd_run_job0.submit, ..." are the 
-HTCondor script files that execute the files "namd_run_job0.sh,...".
+The directory `tutorial-dagman-namd` contains all the necessary files. The file 
+`linear.dag` is the DAGMan script. The files `namd_run_job0.submit, ...` are the 
+HTCondor script files that execute the files `namd_run_job0.sh,...`.
 
 
 Now we submit the DAGMan job.  
@@ -104,7 +105,7 @@ Submitting job(s).
 
 ~~~
 
-Note that the DAG file is submitted through  *condor_submit_dag*. We can check the job status, by typing
+Note that the DAG file is submitted through  `condor_submit_dag`. We can check the job status, by typing
 
 ~~~
 $ watch -n2 condor_q username #watch every two seconds the status of condor_q username command.
@@ -116,11 +117,11 @@ $ watch -n2 condor_q username #watch every two seconds the status of condor_q us
 
 2 jobs; 0 completed, 0 removed, 1 idle, 1 running, 0 held, 0 suspended
 ~~~~
-We need to type Ctrl-C to exit from watch command. We see two running jobs. One is the dagman 
+We need to type `Ctrl-C` to exit from watch command. We see two running jobs. One is the dagman 
 job which manages the execution of NAMD jobs. The other is the actual NAMD 
-execution "namd_run_job0.sh". Once the dag completes, you will see four .tar.gz 
-files "OutFilesFromNAMD_job0.tar.gz, OutFilesFromNAMD_job1.tar.gz, OutFilesFromNAMD_job2.tar.gz, 
-OutFilesFromNAMD_job3.tar.gz". If the output files are not empty, the jobs are 
+execution `namd_run_job0.sh`. Once the dag completes, you will see four .tar.gz 
+files `OutFilesFromNAMD_job0.tar.gz, OutFilesFromNAMD_job1.tar.gz, OutFilesFromNAMD_job2.tar.gz, 
+OutFilesFromNAMD_job3.tar.gz`. If the output files are not empty, the jobs are 
 successfully completed. Of course, a through check up requires looking at the output results.  
 
 ###Parallel DAG###
