@@ -12,22 +12,22 @@ title: Software Resources on OSG
 
 <h2> Available Resources on OSG </h2> 
 Commonly used software and libraries on the Open Science Grid are available in a
-central repository (known as OASIS) and accessed via the *module* command. We will see how to 
+central repository (known as OASIS) and accessed via the `module` command. We will see how to 
 search for, load, and use software packages.
 
-We will also cover the usage of the built-in *tutorial* command. Using *tutorial*,
+We will also cover the usage of the built-in `tutorial` command. Using `tutorial`,
 we load a variety of job templates that cover basic usage, specific use cases, and best practices.
 
 <h3> Software Applications </h3>
 
-Log in OSG with secure shell  
+Log in to OSG Connect 
 
 ~~~
 $ ssh username@login.osgconnect.net
 ~~~
 
 
-The first step in using the module command is to initialize the module system.  This 
+The first step in using the `module` command is to initialize the module system.  This 
 step consists of sourcing a shell specific file that adds the module command 
 to your environment. For example, initializing module for bash is done as follows:
 
@@ -71,14 +71,21 @@ Use "module keyword key1 key2 ..." to search for all possible modules matching a
 
 ~~~
 
-In order to load a module, you need to run "module load [modulename]".  Say for
+In order to load a module, you need to run `module load [modulename]`.  Say for
 example you want to load R package, 
 
 ~~~
 $ module load R 
 ~~~
 
-This sets up the R package for you. Now you can do some test calculations with R. 
+This loads the default R package for you. If the package you want has multiple versions, you should 
+give the version when loading the module: 
+
+~~~
+$ module load R/3.1.1
+~~~
+
+Now you can do some test calculations with R. 
 
 ~~~
 $ R # invoke R package
@@ -88,15 +95,54 @@ $ R # invoke R package
 
 ~~~
 
-If you want to unload a module, type 
+Note that some modules may depend on other modules.  Gromacs is an example of
+one such module.  If you try to load it, the `module` command will give you an
+error indicating this:
+
+~~~
+$ module load gromacs
+
+Lmod has detected the following error: Cannot load module "gromacs/5.0.0"
+without these modules loaded:
+  fftw/3.3.4-gromacs, atlas, lapack
+
+
+  While processing the following module(s):
+
+  Module fullname  Module Filename
+  ---------------  ---------------
+  gromacs/5.0.0
+  /cvmfs/oasis.opensciencegrid.org/osg/modules/modulefiles/Core/gromacs/5.0.0.lua
+~~~
+
+The `module` command will helpfully let you know which modules are needed. In
+this case, you'll need fftw/3.3.4-gromacs, atlas, and lapack.  So you'll need to
+load them first:
+
+~~~
+$ module load fftw/3.3.4-gromacs atlas lapack
+$ module load gromacs
+$ mdrun --version
+GROMACS:    gmx mdrun, VERSION 5.0
+~~~
+
+Finally, if you want to unload a module, type 
 
 ~~~
 $ module unload R 
 ~~~
 
+<div class="">
+<h5>Challenge</h5>
+<ol>
+  <li>Load the wget application and run `wget --version`</li>
+  <li>Load the octave application and run `octave --version`</li>
+</ol>
+</div>
+
 <h3> Tutorial Command </h3> 
 
-The built-in *tutorial* command assists a user in getting started on 
+The built-in `tutorial` command assists a user in getting started on 
 OSG.  To see the list of existing tutorials, type
 
 ~~~
@@ -122,22 +168,24 @@ Tutorial 'R' is set up.  To begin:
      cd tutorial-R
 ~~~ 
 
-The "tutorial R" command creates a directory "tutorial-R" containing the neccessary script and input files. 
+The `tutorial R` command creates a directory `tutorial-R` containing the neccessary script and input files. 
 
 ~~~
-mciP.R      # The example R script file
+$ ls 
+mciP.R       # The example R script file
 R-wrapper.sh # The job execution file 
-R.submit  # The job submission file (will discuss later in the lesson HTCondor scripts)
+R.submit     # The job submission file (will discuss later in the lesson HTCondor scripts)
 ~~~
 
-Lets focus on "mciP.R" and the "R-wrapper" scripts. The details of "R.submit" script 
+Lets focus on `mciP.R` and the `R-wrapper.sh` scripts. The details of `R.submit` script 
 will be discussed later when we learn HTCondor scripts.  
 
-The file "mciP.R" is a R script that calculates the value of *pi* using the Monte Carlo
-method.  The R-wrapper.sh essentially loads the R module and runs the "mciP.R" 
+The file `mciP.R` is a R script that calculates the value of *pi* using the Monte Carlo
+method.  The `R-wrapper.sh` essentially loads the R module and runs the `mciP.R` 
 script. 
 
 ~~~
+$ cat R-wrapper.sh
 #!/bin/bash # Defines the shell environment.
 source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash
 module load R    # Loads the module 
@@ -151,8 +199,8 @@ calculations on OSG.
 <div class="keypoints" markdown="1">
 
 #### Key Points
-*   To use an existing application use the module load command. 
-*   The command - *tutorial* helps to access the existing tutorials.  
+*   The `module` command gives access to software located in the OASIS system
+*   The `tutorial` provides access existing tutorials for using various aspects of OSG Connect.
 </div>
 
 
