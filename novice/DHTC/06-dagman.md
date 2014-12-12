@@ -140,6 +140,7 @@ of MD simulations A1 and B1. In the DAGMan language, X is the parent of A1 and B
 
 The input fiiles, job submission files and execuation scripts of the 
 jobs are located at 
+
 ~~~
 cd tutorial-dagman-namd/X-DAG
 ~~~
