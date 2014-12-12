@@ -43,18 +43,32 @@ available modules:
 
 ~~~
 $ module avail
- 
- 
---------------------------- /cvmfs/oasis.opensciencegrid.org/osg/modules/modulefiles/Core ----------------------------
-   atlas      fftw/fftw-3.3.4-gromacs    lapack              lmod/5.6.2 (D)    python/3.4
-   blast      gromacs/4.6.5              lmod/SiteHook       namd/2.9          settarg/5.6.2
-   blender    jpeg                       lmod/SitePackage    python/2.7 (D)
- 
+------------------------------------- /cvmfs/oasis.opensciencegrid.org/osg/modules/modulefiles/Core --------------------------------------
+   R/3.1.1                  casino/2.13.211           gromacs/4.6.5          muscle/3.8.31          sdpa/7.3.8
+   SitePackage              cdo/1.6.4                 gromacs/5.0.0   (D)    namd/2.9               serf/1.37
+   SparseSuite/4.2.1        cmake/3.0.1               hdf5/1.8.9             nco/4.3.0              settarg/5.6.2
+   ant/1.9.4                cp2k/2.5.1                hdf5/1.8.12            netcdf/4.2.0           shrimp/2.2.3
+   apr/1.5.1                curl/7.37.1               hdf5/1.8.13     (D)    octave/3.8.1           siesta/3.2
+   apr-util/1.5.3           ectools                   hmmer/3.1              openbabel/2.3.2        subversion/1.8.10
+   aprutil/1.5.3            espresso/5.1              java/7u71              papi/5.3.2             sundials/2.5
+   atlas                    expat/2.1.0               java/8u25       (D)    pbsuite/14.9.9         swift/0.94.1
+   autodock/4.2.6           fftw/3.3.4-gromacs        jpeg                   pcre/8.35              tcl/8.6.2
+   bedtools/2.21            fftw/3.3.4         (D)    lammps/2.0             proot/2014             uclust/2.22
+   blasr/1.3.1              fpc/2.6.4                 lapack                 protobuf/2.5           udunits/2.2.17
+   blast                    gamess/2013               lmod/5.6.2             python/2.7      (D)    valgrind/3.10
+   blender                  gcc/4.6.2                 madgraph/2.1.2         python/3.4             vmd/1.9.1
+   boost/1.50.0             geos/3.4.2                matlab/2013b           qhull/2012.1           wget/1.15
+   boost/1.56        (D)    git/1.9.0                 matlab/2014a    (D)    root/5.34-21
+   bowtie/2.2.3             glpk/4.54                 mercurial/1.9.1        ruby/2.1
+   bwa/2014                 gnuplot/4.6.5             mplayer/1.1            samtools/0.1.17
+   canopy/1.4.1             graphviz/2.38.0           mrbayes/3.2.2          scons/2.3.4
+
   Where:
    (D):  Default Module
- 
+
 Use "module spider" to find all possible modules.
 Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
+
 ~~~
 
 In order to load a module, you need to run "module load [modulename]".  Say for
