@@ -89,8 +89,6 @@ Please contact user support staff at [connect-support@uchicago.edu](mailto:conne
 #### Key Points
 *   OSG resources are distributed across 120 institutions and  supports scientific computing of 2 million core CPU hours per day.   
 *   Many scientific applications are installed on OSG and available for the users. 
-*   To use an existing application use the module load command. 
-*   The command - *tutorial* helps to access the existing tutorials.  
 </div>
 
 
