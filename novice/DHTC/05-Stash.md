@@ -98,7 +98,7 @@ the globus connect personal installer specific to your system.
 While that's running, you'll need to get a setup key from Globus in order to
 setup the Globus Connect Personal software.  
 
-*   First login to [OSG Connect](http://www.osgconnect.net) at www.osgconnect.net using your OSG Connect username and password
+*   First login to [OSG Connect](http://www.osgconnect.net) using your OSG Connect username and password
 *   Next go to this [page](https://portal.osgconnect.net/xfer/ManageEndpoints#)
 *   Click on the add Globus Connect Personal link
 *   Enter a name for your endpoint on the page (remember this!)
@@ -164,9 +164,7 @@ $ tutorial namd-stash
 $ cd ~/osg-stash-namd
 ~~~
 
-[NAMD](http://www.ks.uiuc.edu/Research/namd/) is a widely used molecular dynamics simulation program. It lets users specify a
-molecule in some initial state and then observe its time evolution subject to forces. Essentially, it lets you go from
-a specifed molecular [structure](http://en.wikipedia.org/wiki/Superoxide_dismutase#mediaviewer/File:Superoxide_dismutase_2_PDB_1VAR.png) to [simulation of its beavior](https://www.youtube.com/watch?v=mk3cLd9PUPA&list=PL418E1C62DD9FC8BA&index=1) in a particular environment.
+*Aside*: [NAMD](http://www.ks.uiuc.edu/Research/namd/) is a widely used molecular dynamics simulation program. It lets users specify a molecule in some initial state and then observe its time evolution subject to forces. Essentially, it lets you go from a specifed molecular [structure](http://en.wikipedia.org/wiki/Superoxide_dismutase#mediaviewer/File:Superoxide_dismutase_2_PDB_1VAR.png) to a [simulation](https://www.youtube.com/watch?v=mk3cLd9PUPA&list=PL418E1C62DD9FC8BA&index=1) of its behavior in a particular environment.  It has been used to study polio eradication, similations of graphene, and studies of biofuels.
 
 You should see the following files in the directory:
 
