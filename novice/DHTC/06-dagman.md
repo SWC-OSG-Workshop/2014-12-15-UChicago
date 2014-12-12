@@ -119,16 +119,18 @@ In the above examples, the set of jobs have simple inter relationship.  Indeed, 
 Say for example,  job A2 in the above example is  important and you want to eliminate the possibility as much as possible. One way is to re-try the specific job A2 a few times. DAGMan would re-try  failed jobs when you specify the following line at the end of dag file.
 
 ~~~ 
-$ nano linear.dag // open the linear.dag file
- 
-### At the end of the linear.dat file
- 
-Retry A2 3 //This would re-try job A2 for three times in case of failures.
-If you want to retry jobs A2 and A3 for 7 times,  edit the linear.dag 
+$ nano linear.dag #open the linear.dag file
  
 ### At the end of the linear.dag file
-Retry A2 7 //This would re-try job A2 for seven times in case of failures.
-Retry A3 7 //This would re-try job A3 for seven times in case of failures.
+ 
+Retry A2 3 #This means re-try job A2 for three times in case of failures. 
+
+
+# If you want to retry jobs A2 and A3 for 7 times,  edit the linear.dag 
+ 
+### At the end of the linear.dag file
+Retry A2 7 #This means re-try job A2 for seven times in case of failures.
+Retry A3 7 #This means re-try job A3 for seven times in case of failures.
 ~~~
  
 ###Rescue DAG###
