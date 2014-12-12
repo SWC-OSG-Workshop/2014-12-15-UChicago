@@ -74,6 +74,8 @@ $ scp -r username@login.osgconnect.net:~/data/my-directory .
 ~~~
 
 <div style="background-color:rgba(0, 255, 0, 0.0470588); padding:40px 0;">
+<h5>User Exercise </h5>
+
 As an exercise, create a directory with a file called hello_world_2 in the
 ~/data directory and copy it from *Stash* to your local system.  Then create a
 directory called hello_world_3 on your local system and copy it to the data
@@ -117,10 +119,12 @@ file on your laptop and click on the right arrow on the top of the screen to
 start a transfer to *Stash*. You can transfer files or directories to your
 laptop by selecting it in the *Stash* window and selecting the left arrow.
 
+<div style="background-color:rgba(0, 255, 0, 0.0470588); padding:40px 0;">
+<h5> User Exercise </h5>
 Now try copying a file to *Stash* from your laptop using Globus.  Then try
 copying the my_hello_world file from *Stash* from *Stash* to your laptop using
 Globus.
-
+</div>
 <h2>Transferring files from Stash using HTTP</h2>
 *Stash* also allows you to access files using your web browser.  In order to do
 this, you'll need to put your file in _~/public_ or _~/data/public_ (the two locations 
@@ -136,8 +140,11 @@ $ echo "This is served over the web" > web-file
 Now go to http://stash.osgconnect.net/+username/ in your browser.  You should
 see the file in the listing.  Clicking on the file should give you the contents.
 
+<div style="background-color:rgba(0, 255, 0, 0.0470588); padding:40px 0;">
+<h5> User Exercise </h5>
 Now, try creating a file called my-web-file and make it available through the
 *Stash* webserver.
+</div>
 
 <h2>Using data on Stash in compute jobs</h2> 
 
@@ -230,7 +237,7 @@ The above lines indicate the NAMD simulation was successful.
 
 #### Key Points
 * Data on *Stash* is quickly accessed by the worker machines. 
-* *Stash* is located at ~/data on login.osgconnect.net. 
-* *scp* and *globus* are useful tools for data transfer.
+* *Stash* is located at ~/stash and ~/public on login.osgconnect.net. 
+* Data can be transferred in and out of *Stash* using scp, Globus, and HTTP 
 </div>
 

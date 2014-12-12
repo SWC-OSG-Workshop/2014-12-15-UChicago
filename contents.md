@@ -15,6 +15,7 @@ title: Lessons
 5.  [Loops](novice/shell/04-loop.html)
 6.  [Shell Scripts](novice/shell/05-script.html)
 7.  [Finding Things](novice/shell/06-find.html)
+8.  [Reference...](novice/ref/01-shell.html)
 
 ## Unit II: [Version Control with Git](novice/git/index.html)
 1.  [Introducing Version Control](novice/shell/00-intro.html)
@@ -22,6 +23,7 @@ title: Lessons
 3.  [Collaborating](novice/shell/02-collab.html)
 4.  [Conflicts](novice/shell/03-conflict.html)
 5.  [Open Science](novice/shell/04-open.html)
+6.  [Reference...](novice/ref/02-git.html)
 
 ## Unit III: [Programming with Python](novice/python/index.html)
 1.  [Analyzing Patient Data](novice/python/01-numpy.html)
@@ -30,6 +32,7 @@ title: Lessons
 4.  [Making Choices](novice/python/04-cond.html)
 5.  [Defensive Programming](novice/python/05-defensive.html)
 6.  [Command-Line Programs](novice/python/06-cmdline.html)
+7.  [Reference...](novice/ref/03-python.html)
 
 ## Unit IV: [Distributed Computing on Open Science Grid](novice/DHTC/index.html)
 1.  [Introduction to Open Science Grid](novice/DHTC/01-IntroGrid.html)

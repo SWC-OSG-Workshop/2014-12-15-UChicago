@@ -82,7 +82,7 @@ OSG Connect:
 
 ##How to get help using OSG Connect
 
-Please contact user support staff at [connect-support@uchicago.edu](mailto:connect-support@uchicago.edu).
+Feel free to contact the OSG Connect support team at: [connect-support@opensciencegrid.org](mailto:connect-support@opensciencegrid.org).
 
 
 <div class="keypoints" markdown="1">
