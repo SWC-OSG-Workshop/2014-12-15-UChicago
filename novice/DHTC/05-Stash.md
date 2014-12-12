@@ -186,7 +186,7 @@ ubq.psf #Input file for NAMD.
 par_all27_prot_lipid.inp #Parameter file for NAMD.
 ~~~
 
-The file - `par_all27_prot_lipid.inp` is the parameter file and is required for 
+The file `par_all27_prot_lipid.inp` is the parameter file and is required for 
 the NAMD simulations. The parameter file is common data file for the NAMD
 simulations. It is a good practice to keep the common files, like  the parameter file 
 in our example, in the Stash storage.  
