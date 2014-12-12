@@ -204,11 +204,11 @@ script.
 You can see that the job execution script "namd_stash_run.sh" has the following lines:
 
 <div style="background-color:rgba(255, 255, 0, 0.0470588); padding:40px 0;">
-#!/bin/bash  
-source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash #sourcing a shell specific file that adds the module command to your environment
-module load namd/2.9  #loading the namd module
-wget http://stash.osgconnect.net/+username/par_all27_prot_lipid.inp 
-namd2 ubq_gbis_eq.conf  #Executing the NAMD simulation
+#!/bin/bash <br> 
+source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash #sourcing a shell specific file that adds the module command to your environment <br>
+module load namd/2.9  #loading the namd module <br>
+wget http://stash.osgconnect.net/+username/par_all27_prot_lipid.inp  <br>
+namd2 ubq_gbis_eq.conf  #Executing the NAMD simulation <br>
 </div>
 
 In the above script, you will have to insert your "username" in URL address. The
