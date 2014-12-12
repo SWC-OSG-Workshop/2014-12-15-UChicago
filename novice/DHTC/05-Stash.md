@@ -76,9 +76,9 @@ $ scp -r username@login.osgconnect.net:~/data/my-directory .
 <div style="background-color:rgba(0, 255, 0, 0.0470588); padding:40px 0;">
 <h5>User Exercise </h5>
 
-As an exercise, create a directory with a file called `hello_world_2` in the
-`~/data` directory and copy it from Stash to your local system.  Then create a
-directory called `hello_world_3` on your local system and copy it to the data
+As an exercise, create a directory with a file called <tt>hello_world_2</tt> in the
+<tt>~/data</tt> directory and copy it from Stash to your local system.  Then create a
+directory called <tt>hello_world_3</tt> on your local system and copy it to the <tt>data</tt>
 directory.
 </div>
 
@@ -98,7 +98,7 @@ the globus connect personal installer specific to your system.
 While that's running, you'll need to get a setup key from Globus in order to
 setup the Globus Connect Personal software.  
 
-*   First login to [OSG Connect](http://www.osgconnect.net) at www.osgconnect.net using your OSG Connect username and password
+*   First login to [OSG Connect](http://www.osgconnect.net) using your OSG Connect username and password
 *   Next go to this [page](https://portal.osgconnect.net/xfer/ManageEndpoints#)
 *   Click on the add Globus Connect Personal link
 *   Enter a name for your endpoint on the page (remember this!)
@@ -114,7 +114,7 @@ Transfer menu, select Start Transfer.  For the first endpoint, enter username#na
 where name is the name you choose for the endpoint above. You should now see the
 files from your laptop displayed.  For the second endpoint, enter
 `osgconnect#stash` and hit enter.  You should now see the contents of your home
-directory on OSG Connect.  Now double click on the data directory.  Select a
+directory on OSG Connect.  Now double click on the `data` directory.  Select a
 file on your laptop and click on the right arrow on the top of the screen to
 start a transfer to Stash. You can transfer files or directories to your
 laptop by selecting it in the Stash window and selecting the left arrow.
@@ -122,12 +122,12 @@ laptop by selecting it in the Stash window and selecting the left arrow.
 <div style="background-color:rgba(0, 255, 0, 0.0470588); padding:40px 0;">
 <h5> User Exercise </h5>
 Now try copying a file to Stash from your laptop using Globus.  Then try
-copying the my_hello_world file from Stash from Stash to your laptop using
+copying the <tt>my_hello_world</tt> file from Stash from Stash to your laptop using
 Globus.
 </div>
 <h2>Transferring files from Stash using HTTP</h2>
 Stash also allows you to access files using your web browser.  In order to do
-this, you'll need to put your file in `_~/public_`or `_~/data/public_` (the two locations 
+this, you'll need to put your file in `~/public`or `~/data/public` (the two locations 
 point to the same directory). Any file or directory that is placed 
 here  will be made available in the Stash webserver.  Let's make a file
 available using the Stash webserver
@@ -164,9 +164,7 @@ $ tutorial namd-stash
 $ cd ~/osg-stash-namd
 ~~~
 
-[NAMD](http://www.ks.uiuc.edu/Research/namd/) is a widely used molecular dynamics simulation program. It lets users specify a
-molecule in some initial state and then observe its time evolution subject to forces. Essentially, it lets you go from
-a specifed molecular [structure](http://en.wikipedia.org/wiki/Superoxide_dismutase#mediaviewer/File:Superoxide_dismutase_2_PDB_1VAR.png) to [simulation of its beavior](https://www.youtube.com/watch?v=mk3cLd9PUPA&list=PL418E1C62DD9FC8BA&index=1) in a particular environment.
+*Aside*: [NAMD](http://www.ks.uiuc.edu/Research/namd/) is a widely used molecular dynamics simulation program. It lets users specify a molecule in some initial state and then observe its time evolution subject to forces. Essentially, it lets you go from a specifed molecular [structure](http://en.wikipedia.org/wiki/Superoxide_dismutase#mediaviewer/File:Superoxide_dismutase_2_PDB_1VAR.png) to a [simulation](https://www.youtube.com/watch?v=mk3cLd9PUPA&list=PL418E1C62DD9FC8BA&index=1) of its behavior in a particular environment.  It has been used to study polio eradication, similations of graphene, and studies of biofuels.
 
 You should see the following files in the directory:
 
