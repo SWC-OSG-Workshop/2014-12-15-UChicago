@@ -160,11 +160,13 @@ protein in implicit water. To get the necessary files, we use the *tutorial* com
 OSG. 
 
 Log in to OSG Connect:
+
 ~~~
 $ ssh username@login.osgconnect.net
 ~~~
 
 Type:
+
 ~~~
 $ tutorial namd-stash
 $ cd ~/osg-stash-namd
@@ -204,7 +206,7 @@ script.
 
 You can see that the job execution script "namd_stash_run.sh" has the following lines:
 
-<div style="background-color:rgba(255, 255, 0, 0.0470588); padding:40px 0;">
+<div class="" style="background-color:rgba(255, 255, 0, 0.0470588); padding:40px 0;">
 #!/bin/bash <br> 
 source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash #sourcing a shell specific file that adds the module command to your environment <br>
 module load namd/2.9  #loading the namd module <br>
