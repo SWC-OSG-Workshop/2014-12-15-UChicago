@@ -206,13 +206,14 @@ script.
 
 You can see that the job script `namd_stash_run.sh` has the following lines:
 
-<div class="" style="background-color:rgba(255, 255, 0, 0.0470588); padding:40px 0;">
-#!/bin/bash <br> 
-source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash #sourcing a shell specific file that adds the module command to your environment <br>
-module load namd/2.9  #loading the namd module <br>
-wget http://stash.osgconnect.net/+username/par_all27_prot_lipid.inp  <br>
-namd2 ubq_gbis_eq.conf  #Executing the NAMD simulation <br>
-</div>
+~~~
+$ cat namd_stash_run.sh
+#!/bin/bash 
+source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash 
+module load namd/2.9  
+wget http://stash.osgconnect.net/+username/par_all27_prot_lipid.inp  
+namd2 ubq_gbis_eq.conf  
+~~~
 
 In the above script, you will have to insert your "username" in URL address. The
 parameter file located on Stash is downloaded using the #wget# utility.  
