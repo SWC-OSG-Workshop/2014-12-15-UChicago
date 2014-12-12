@@ -141,7 +141,7 @@ $ cd ~/public
 $ echo "This is served over the web" > web-file
 ~~~
 
-Now go to http://stash.osgconnect.net/+username/ in your browser.  You should
+Now go to `http://stash.osgconnect.net/+username/` in your browser.  You should
 see the file in the listing.  Clicking on the file should give you the contents.
 
 <div class="">
@@ -196,7 +196,7 @@ mv par_all27_prot_lipid.inp ~/public/.
 ~~~
 
 You can view the parameter file using your web browser by going to 
-http://stash.osgconnect.net/+yourusername .
+`http://stash.osgconnect.net/+yourusername`.
 
 Now we want the parameter file available on the execution (worker) machine when the 
 simulation starts to run. As mentioned early, the data on the Stash is available to 
