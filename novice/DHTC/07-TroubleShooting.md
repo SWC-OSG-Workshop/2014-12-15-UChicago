@@ -89,9 +89,7 @@ condor_qedit JOB-ID Requirements 'Requirements = (Memory >= 512)'
 <br/>
 <br/>
 <h3> condor_ssh_to_job </h3> 
-This command allows the user to *ssh* on the compute node where the job is running.  Once the command 
-is run, the user will be in the job's working directory and can examine the job's environment and run 
-commands. 
+This command allows you to *ssh* to the compute node where the job is running. After running condor_ssh_to_job, you will be connected to the remote system, and you will be able to use normal shell commands to investigate your job.
 
 ~~~
 condor_ssh_to_job JOB-ID  
