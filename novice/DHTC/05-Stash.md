@@ -78,7 +78,7 @@ $ scp -r username@login.osgconnect.net:~/data/my-directory .
 
 As an exercise, create a directory with a file called <tt>hello_world_2</tt> in the
 <tt>~/data</tt> directory and copy it from Stash to your local system.  Then create a
-directory called <tt>hello_world_3</tt> on your local system and copy it to the `data`
+directory called <tt>hello_world_3</tt> on your local system and copy it to the <tt>data</tt>
 directory.
 </div>
 
