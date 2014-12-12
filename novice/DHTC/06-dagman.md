@@ -96,7 +96,7 @@ Submitting job(s).
 Note that the DAG file is submitted through  *condor_submit_dag*. We can check the job status, by typing
 
 ~~~
-$ condor_q username
+$ watch -n2 condor_q username #watch every two seconds the status of condor_q username command.
 
 -- Submitter: login01.osgconnect.net : <192.170.227.195:48781> : login01.osgconnect.net
  ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD               
@@ -105,14 +105,12 @@ $ condor_q username
 
 2 jobs; 0 completed, 0 removed, 1 idle, 1 running, 0 held, 0 suspended
 ~~~~
-
-We see two running jobs. One is the dagman job which manages the execution of NAMD jobs.
-The other is the actual NAMD execution "namd_run_job0.sh". Once the dag 
-completes, you will see four .tar.gz files "OutFilesFromNAMD_job0.tar.gz, 
-OutFilesFromNAMD_job1.tar.gz, OutFilesFromNAMD_job2.tar.gz, 
+We need to type Ctrl-C to exit from watch command. We see two running jobs. One is the dagman 
+job which manages the execution of NAMD jobs. The other is the actual NAMD 
+execution "namd_run_job0.sh". Once the dag completes, you will see four .tar.gz 
+files "OutFilesFromNAMD_job0.tar.gz, OutFilesFromNAMD_job1.tar.gz, OutFilesFromNAMD_job2.tar.gz, 
 OutFilesFromNAMD_job3.tar.gz". If the output files are not empty, the jobs are 
-successfully completed. Of course, a through check up requires looking at the output 
-results.  
+successfully completed. Of course, a through check up requires looking at the output results.  
 
 ###Parallel DAG###
 
