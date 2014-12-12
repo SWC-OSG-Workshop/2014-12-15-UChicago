@@ -29,8 +29,11 @@ submitting small jobs repeatedly with restart files may not be practical in many
 situations. DAGMan offers an elegant and simple solution to run the set of jobs. With 
 the DAGMan script one could run a long time scale MD simulations of biomolecules. 
 
-In our example, we will break the MD simulation in four steps and run it through the 
-DAGMan script. For the sake of simplicity, the MD simulations run only for few 
+###Linear DAGS###
+
+In our first example, we will break the MD simulation in four steps and run it through the 
+DAGMan script. NAMD software is used to run each MD simulation. For the sake of 
+simplicity, the MD simulations run only for few 
 integration steps to consume less computational time but demonstrate the ability 
 of DAGMan. 
 
@@ -111,6 +114,37 @@ OutFilesFromNAMD_job3.tar.gz". If the output files are not empty, the jobs are
 successfully completed. Of course, a through check up requires looking at the ouput 
 results.  
 
+###Parallel DAG###
+
+Now we consider the workflow of two-linear set of jobs A0, A1, B0 and B1. Again these are 
+NAMD jobs. The job A1 is parent 
+of A0 and the job B1 is the parent of B0. The jobs A0 and A1 do not depend on B0 and B1. This 
+means we have two parallel DAGs that are represented as A0->A1 and B0->B1. The arrow shows the 
+data dependency between the jobs.  This example is located at 
+
+~~~
+cd tutorial-dagman-namd/TwoLinearDAG
+~~~
+
+The directory contains the input fiiles, job submission files and execuation scripts of the 
+jobs. What is missing here is the DAG file. See if you can write the DAGfile for this example 
+and submit the job. 
+
+###X-DAG###
+We consider one more example of jobs A0, A1, X, B0 and B1 that allows the cross communication 
+between two parallel jobs. The jobs A0 and B0 are two-independent NAMD simulations. After 
+finishing A0 and B0, we do some analysis with the job X. The jobs A1 and B1 are two MD 
+simulations independent of each other. The job X determins what is the simulation temperature 
+of MD simulations A1 and B1. In the DAGMan language, X is the parent of A1 and B1.  
+
+
+The input fiiles, job submission files and execuation scripts of the 
+jobs are located at 
+~~~
+cd tutorial-dagman-namd/X-DAG
+~~~
+
+Again we are missing the DAG file here. See if you can write the DAGfile for this example 
 
 ###Job Retry and Rescue###
 
