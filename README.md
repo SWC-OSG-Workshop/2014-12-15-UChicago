@@ -1,17 +1,6 @@
-============================
-#Software Carpentry - Open Science Grid (SWC-OSG) Workshop
-============================
 
+## Software Carpentry - Open Science Grid (SWC-OSG) Workshops
 
-
-#Workshop Webpage:  http://swc-osg-workshop.github.io/2014-12-15-UChicago/
-
-
-
-
-
-====================
-2014-12-15-UChicagoCI
-=====================
+### Workshop website:  http://swc-osg-workshop.github.io/2014-12-15-UChicago/
 
 
