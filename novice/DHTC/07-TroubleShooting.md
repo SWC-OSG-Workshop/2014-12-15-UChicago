@@ -137,12 +137,11 @@ condor_release JOB-ID
 
 <h3> Retries with periodic_release </h3>
 
-We do computing on a hetrogenous environment. It is possible that the jobs are pre-empted due to a partcular
-resource limitation (For example, the machine wants to perform someother task or reboot while your job 
-is still running).  In such cases, we want to re-submit failed jobs without manual intervention. Condor 
-supports the automatic deduction and retries of computing jobs in two steps.
-In the first step, a failed job is forced to be on the held state.   Next, the held job is 
-periodically re-submitted. These two steps are listed in the following condor submit file: 
+It is important to consider that computing on the Open Science Grid is a very heterogenous environment. You might have a job that works at 95% of remote sites, but inexplicably fails elsewhere. What to do, then? 
+
+Fortunately, we can ask Condor to check if the job failed by looking at its exit code. If you are familiar with UNIX systems, you may be aware that a successful program returns "0". Anything other than 0 might be considered a failure, and so we can ask Condor to monitor for these and retry if it detects any such failures. 
+
+This can be accomplished by adding the following lines to your submit file:
 
 ~~~
 # Send the job to Held state on failure. 
