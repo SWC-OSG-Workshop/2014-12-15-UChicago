@@ -171,8 +171,9 @@ molecule and then see how the molecule moves.  Essentially, it lets you go from
 a [structure](http://en.wikipedia.org/wiki/Superoxide_dismutase#mediaviewer/File:Superoxide_dismutase_2_PDB_1VAR.png) 
 to [how the molecule behaves in a specified environment](https://www.youtube.com/watch?v=mk3cLd9PUPA&list=PL418E1C62DD9FC8BA&index=1).
 
+You should see the following files in the directory
 ~~~
-namd_stash_run.submit #Condor job submission script file.
+namd_stash_run.submit #HTCondor job submission script file.
 namd_stash_run.sh #Job execution script file.
 ubq_gbis_eq.conf #Input configuration for NAMD.
 ubq.pdb #Input pdb file for NAMD.
@@ -189,11 +190,8 @@ in our example, in the *Stash* storage.
 mv par_all27_prot_lipid.inp ~/public/.  
 ~~~
 
-You can view the parameter file appear on WWW
-
-~~~
-http://stash.osgconnect.net/+yourusername
-~~~
+You can view the parameter file using your web browser by going to 
+http://stash.osgconnect.net/+yourusername .
 
 Now we want the parameter file available on the execution (worker) machine when the 
 simulation starts to run. As mentioned early, the data on the *Stash* is available to 
@@ -203,13 +201,13 @@ script.
 
 You can see that the job execution script "namd_stash_run.sh" has the following lines:
 
-~~~
+<div style="background-color:rgba(255, 255, 0, 0.0470588); padding:40px 0;">
 #!/bin/bash  
 source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash #sourcing a shell specific file that adds the module command to your environment
 module load namd/2.9  #loading the namd module
 wget http://stash.osgconnect.net/+username/par_all27_prot_lipid.inp 
 namd2 ubq_gbis_eq.conf  #Executing the NAMD simulation
-~~~
+</div>
 
 In the above script, you will have to insert your "username" in URL address. The
 parameter file located on *Stash* is downloaded using the #wget# utility.  
