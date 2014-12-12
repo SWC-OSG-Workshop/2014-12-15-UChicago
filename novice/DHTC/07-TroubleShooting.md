@@ -82,9 +82,11 @@ condor_qedit JOB-ID Requirements 'Requirements = (Memory >= 512)'
 ~~~
 
 <h3> On your own </h3>
+<div style="background-color:rgba(0, 255, 0, 0.0470588); padding:40px 0;">
   1) Use the `connect status` command to get a list of pools (e.g., 'uc3-mgt.mwt2.org') <br/>
   2) Edit error101_job.submit, replacing the `Requirements` line with `Requirements = (regexp("^uc**", TARGET.Machine, "IM") == True)` before the "queue" statement. <br/>
   3) Use `condor_q -better-analyze` against each pool. Does it match any slots? If so, where? <br/>
+</div>
 
 <br/>
 <br/>
