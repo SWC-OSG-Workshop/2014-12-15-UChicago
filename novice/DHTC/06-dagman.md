@@ -112,9 +112,11 @@ successfully completed. Of course, a through check up requires looking at the ou
 results.  
 
 
+###Job Retry and Rescue###
+
 In the above examples, the set of jobs have simple inter relationship.  Indeed,  DAGMan is capable of dealing with set of jobs with complex inter relations.  One may also write a DAG file for set of DAG files where each of the DAG file contains the workflow for set of condor jobs.  Also DAGMan can help with the resubmission of uncompleted portions of a DAG, when one or more nodes result in failure.  
 
-###Job Retry###
+####Job Retry####
 
 Say for example,  job A2 in the above example is  important and you want to eliminate the possibility as much as possible. One way is to re-try the specific job A2 a few times. DAGMan would re-try  failed jobs when you specify the following line at the end of dag file.
 
@@ -133,7 +135,7 @@ Retry A2 7 #This means re-try job A2 for seven times in case of failures.
 Retry A3 7 #This means re-try job A3 for seven times in case of failures.
 ~~~
  
-###Rescue DAG###
+####Rescue DAG####
 
 In case DAGMan  does not complete the set of jobs, it would create a rescue DAG file with a 
 suffix ".rescue". The rescue DAG file contains the information about where to restart 
