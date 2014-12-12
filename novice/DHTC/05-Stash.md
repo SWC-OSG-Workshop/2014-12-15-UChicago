@@ -96,8 +96,9 @@ the globus connect personal installer specific to your system.
 While that's running, you'll need to get a setup key from Globus in order to
 setup the Globus Connect Personal software.  
 
-*   First login to [Globus](http://www.globus.org) at www.globus.org using your OSG Connect username and password
-*   Next go to this [page](https://www.globusonline.org/xfer/ManageEndpoints?globus_connect=true)
+*   First login to [OSG Connect](http://www.osgconnect.net) at www.osgconnect.net using your OSG Connect username and password
+*   Next go to this [page](https://portal.osgconnect.net/xfer/ManageEndpoints#)
+*   Click on the add Globus Connect Personal link
 *   Enter a name for your endpoint on the page (remember this!)
 *   Click on "Generate setup Key"
 *   Select the key and copy the key
@@ -106,8 +107,8 @@ Finally, start the Globus online personal software that you just installed.  The
 installer will ask for the setup key that you obtained from the Globus website.
 At this point, the install and setup of Globus Connect Personal is complete.
 
-Now go to [http://www.globus.org](http://www.globus.org) and under the Quick
-Links menu, select Transfer files.  For the first endpoint, enter username#name
+Now go to [http://www.osgconnect.net](http://www.osgconnect.net) and under the
+Transfer menu, select Start Transfer.  For the first endpoint, enter username#name
 where name is the name you choose for the endpoint above. You should now see the
 files from your laptop displayed.  For the second endpoint, enter
 osgconnect#stash and hit enter.  You should now see the contents of your home
@@ -122,7 +123,7 @@ Globus.
 
 <h2>Transferring files from Stash using HTTP</h2>
 *Stash* also allows you to access files using your web browser.  In order to do
-this, you'll need to put your file in *~/public* or *~/data/public* (the two locations 
+this, you'll need to put your file in _~/public_ or _~/data/public_ (the two locations 
 point to the same directory). Any file or directory that is placed 
 here  will be made available in the *Stash* webserver.  Let's make a file
 available using the *Stash* webserver
@@ -141,9 +142,9 @@ Now, try creating a file called my-web-file and make it available through the
 <h2>Using data on Stash in compute jobs</h2> 
 
 Let us do an example calculation to understand the use of *Stash* and how we download 
-the data from the web. We will peform 
-molecular dynamics simulation of a small protein in implicit water. To get the
-necessary files, we use the *tutorial* command on OSG. 
+the data from the web. We will peform a  molecular dynamics simulation of a small 
+protein in implicit water. To get the necessary files, we use the *tutorial* command on 
+OSG. 
 
 Log in OSG
 
@@ -157,6 +158,10 @@ type
 $ tutorial namd-stash
 $ cd ~/osg-stash-namd
 ~~~
+
+NAMD is a widely used molecular dynamics simulator. It lets users specify a
+molecule and then see how the molecule moves.  Essentially, it lets you go from
+this to [this](https://www.youtube.com/watch?v=mk3cLd9PUPA&list=PL418E1C62DD9FC8BA&index=1).
 
 ~~~
 namd_stash_run.submit #Condor job submission script file.
