@@ -168,7 +168,8 @@ $ cd ~/osg-stash-namd
 
 NAMD is a widely used molecular dynamics simulator. It lets users specify a
 molecule and then see how the molecule moves.  Essentially, it lets you go from
-this to [this](https://www.youtube.com/watch?v=mk3cLd9PUPA&list=PL418E1C62DD9FC8BA&index=1).
+a [structure](http://en.wikipedia.org/wiki/Superoxide_dismutase#mediaviewer/File:Superoxide_dismutase_2_PDB_1VAR.png) 
+to [how the molecule behaves in a specified environment](https://www.youtube.com/watch?v=mk3cLd9PUPA&list=PL418E1C62DD9FC8BA&index=1).
 
 ~~~
 namd_stash_run.submit #Condor job submission script file.
