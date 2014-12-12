@@ -6,8 +6,8 @@ title: Workflow Management - DAGMan
 <div class="objectives" markdown="1">
 
 #### Objectives
-*   Learn about DAGMan
-*   Learn how to write a DAGMan script   
+*   Learn about Workflow Management 
+*   Learn how to use DAGMan to complete a set of computational jobs
 </div>
 
 <h2> Overview </h2> 
