@@ -105,10 +105,12 @@ Submitting job(s).
 
 ~~~
 
-Note that the DAG file is submitted through  `condor_submit_dag`. We can check the job status, by typing
+Note that the DAG file is submitted through  `condor_submit_dag`.
+Let's monitor the job status every two seconds.  (Recall `connect watch`
+from a previous lesson.)
 
 ~~~
-$ watch -n2 condor_q username #watch every two seconds the status of condor_q username command.
+$ connect watch 2
 
 -- Submitter: login01.osgconnect.net : <192.170.227.195:48781> : login01.osgconnect.net
  ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD               
