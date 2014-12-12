@@ -188,13 +188,12 @@ Retry A3 7 #This means re-try job A3 for seven times in case of failures.
 ####Rescue DAG####
 
 In case DAGMan  does not complete the set of jobs, it would create a rescue DAG file with a 
-suffix ".rescue". The rescue DAG file contains the information about where to restart 
+suffix `.rescue`. The rescue DAG file contains the information about where to restart 
 the jobs. Say for example, in our workflow of four linear jobs, the jobs A0 and A1 are 
 finished and A2 is incomplete. In such a case we do not want to start executing the jobs 
 all over again rather we want to start from Job A2. This information is embedded 
 in the rescue dag file. In our example of linear.dag, the rescue dag file would 
-be "linear.dag.rescue". So we re-submit the rescue dag file 
-as follows
+be `linear.dag.rescue`. So we re-submit the rescue dag file as follows
 
 ~~~
 $ condor_submit_dag linear.dag.rescue
@@ -205,5 +204,5 @@ $ condor_submit_dag linear.dag.rescue
 #### Keypoints
 *   DAGMan (Directed Acyclic Graph Manager) handles computational jobs that are mapped as a directed acyclic graph.
 *   *condor_submit_dag* - is the command to submit a dagman job. 
-*   One may write a DAGMan script consisting of several DAGMan jobs. 
+*   One may write a DAGMan file consisting of several DAGMan jobs. 
 </div>
