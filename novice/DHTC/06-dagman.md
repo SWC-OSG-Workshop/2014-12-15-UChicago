@@ -25,7 +25,7 @@ apply DAGMan to run a set of molecular dynamics (MD) simulations.
 
 <div>
    <img alt="Software Carpentry banner" src="{{page.root}}/novice/DHTC/DAGManImages/Slide1.png" width="300">
-   <img alt="Software Carpentry banner" src="{{page.root}}/novice/DHTC/DAGManImages/Slide5.png" width="300">
+   <img alt="Software Carpentry banner" src="{{page.root}}/novice/DHTC/DAGManImages/Slide5.png" width="150">
 </div>
 
 <h2> Running MD Simulation with DAGMan   </h2> 
