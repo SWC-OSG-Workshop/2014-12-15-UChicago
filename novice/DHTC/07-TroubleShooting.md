@@ -106,6 +106,7 @@ transfer_output_files = outputfile
 ~~~
 
 However, when the job executed, it went into Held state:
+
 ~~~
 $ condor_q -analyze 372993.0
 -- Submitter: login01.osgconnect.net : <192.170.227.195:56174> : login01.osgconnect.net
@@ -150,6 +151,8 @@ on_exit_hold = (ExitBySignal == True) || (ExitCode != 0)
 # Periodically retry the jobs for 3 times with an interval 1 hour.   
 periodic_release =  (NumJobStarts < 3) && ((CurrentTime - EnteredCurrentStatus) > (60*60))
 ~~~
+
+
 
 
 <div class="keypoints" markdown="1">
