@@ -160,11 +160,13 @@ protein in implicit water. To get the necessary files, we use the *tutorial* com
 OSG. 
 
 Log in to OSG Connect:
+
 ~~~
 $ ssh username@login.osgconnect.net
 ~~~
 
 Type:
+
 ~~~
 $ tutorial namd-stash
 $ cd ~/osg-stash-namd
@@ -184,7 +186,7 @@ ubq.psf #Input file for NAMD.
 par_all27_prot_lipid.inp #Parameter file for NAMD.
 ~~~
 
-The file - "par_all27_prot_lipid.inp" is the parameter file and is required for 
+The file - `par_all27_prot_lipid.inp` is the parameter file and is required for 
 the NAMD simulations. The parameter file is common data file for the NAMD
 simulations. It is a good practice to keep the common files, like  the parameter file 
 in our example, in the Stash storage.  
@@ -202,15 +204,16 @@ the execution machines. This means the execution machine can transfer the data f
 Stash as a part of the job execution. So we have to script this in the job execution 
 script. 
 
-You can see that the job execution script "namd_stash_run.sh" has the following lines:
+You can see that the job script `namd_stash_run.sh` has the following lines:
 
-<div style="background-color:rgba(255, 255, 0, 0.0470588); padding:40px 0;">
-#!/bin/bash <br> 
-source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash #sourcing a shell specific file that adds the module command to your environment <br>
-module load namd/2.9  #loading the namd module <br>
-wget http://stash.osgconnect.net/+username/par_all27_prot_lipid.inp  <br>
-namd2 ubq_gbis_eq.conf  #Executing the NAMD simulation <br>
-</div>
+~~~
+$ cat namd_stash_run.sh
+#!/bin/bash 
+source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash 
+module load namd/2.9  
+wget http://stash.osgconnect.net/+username/par_all27_prot_lipid.inp  
+namd2 ubq_gbis_eq.conf  
+~~~
 
 In the above script, you will have to insert your "username" in URL address. The
 parameter file located on Stash is downloaded using the #wget# utility.  
@@ -238,8 +241,8 @@ The above lines indicate the NAMD simulation was successful.
 <div class="keypoints" markdown="1">
 
 #### Key Points
-* Data on Stash is quickly accessed by the worker machines. 
 * Stash is located at ~/stash and ~/public on login.osgconnect.net. 
 * Data can be transferred in and out of Stash using scp, Globus, and HTTP 
+* Data on Stash can be accessed by jobs running on compute nodes. 
 </div>
 
