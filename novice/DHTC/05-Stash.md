@@ -76,7 +76,7 @@ $ scp -r username@login.osgconnect.net:~/data/my-directory .
 <div style="background-color:rgba(0, 255, 0, 0.0470588); padding:40px 0;">
 <h5>User Exercise </h5>
 
-As an exercise, create a directory with a file called <tt>hello_world_2<tt> in the
+As an exercise, create a directory with a file called <tt>hello_world_2</tt> in the
 <tt>~/data</tt> directory and copy it from Stash to your local system.  Then create a
 directory called <tt>hello_world_3</tt> on your local system and copy it to the data
 directory.
@@ -122,7 +122,7 @@ laptop by selecting it in the Stash window and selecting the left arrow.
 <div style="background-color:rgba(0, 255, 0, 0.0470588); padding:40px 0;">
 <h5> User Exercise </h5>
 Now try copying a file to Stash from your laptop using Globus.  Then try
-copying the <tt>my_hello_world<\tt> file from Stash from Stash to your laptop using
+copying the <tt>my_hello_world</tt> file from Stash from Stash to your laptop using
 Globus.
 </div>
 <h2>Transferring files from Stash using HTTP</h2>
