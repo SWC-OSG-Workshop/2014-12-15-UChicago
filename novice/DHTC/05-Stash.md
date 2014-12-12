@@ -32,7 +32,7 @@ ssh username@login.osgconnect.net #Connect to the login node with your username
 passwd:       # your password
 ~~~
 
-Once done, you can change to the 'stash' directory in your home area:
+Once done, you can change to the `stash` directory in your home area:
 
 ~~~
 $ cd ~/stash    
@@ -73,13 +73,16 @@ scp.  E.g:
 $ scp -r username@login.osgconnect.net:~/data/my-directory .
 ~~~
 
-<div style="background-color:rgba(0, 255, 0, 0.0470588); padding:40px 0;">
-<h5>User Exercise </h5>
-
-As an exercise, create a directory with a file called <tt>hello_world_2</tt> in the
-<tt>~/data</tt> directory and copy it from Stash to your local system.  Then create a
-directory called <tt>hello_world_3</tt> on your local system and copy it to the <tt>data</tt>
-directory.
+<div style="">
+<h5>Challenges</h5>
+<ol>
+<li>Create a directory with a file called <code>hello_world_2</code> in the 
+    <code>~/data</code> directory and copy it from Stash to your local system.
+</li>
+<li>Create a directory called <code>hello_world_3</code> on your local system 
+and copy it to the <code>data</code> directory.
+</li>
+</ol>
 </div>
 
 <h2>Transferring files to and from Stash using Globus</h2>
@@ -119,11 +122,12 @@ file on your laptop and click on the right arrow on the top of the screen to
 start a transfer to Stash. You can transfer files or directories to your
 laptop by selecting it in the Stash window and selecting the left arrow.
 
-<div style="background-color:rgba(0, 255, 0, 0.0470588); padding:40px 0;">
-<h5> User Exercise </h5>
-Now try copying a file to Stash from your laptop using Globus.  Then try
-copying the <tt>my_hello_world</tt> file from Stash from Stash to your laptop using
-Globus.
+<div class="">
+<h5> Challenges </h5>
+<ol>
+<li> Copy a file to Stash from your laptop using Globus.  </li>
+<li> Next copy the <code>my_hello_world</code> file from Stash to your laptop using Globus.</li>
+</ol>
 </div>
 <h2>Transferring files from Stash using HTTP</h2>
 Stash also allows you to access files using your web browser.  In order to do
@@ -140,10 +144,12 @@ $ echo "This is served over the web" > web-file
 Now go to http://stash.osgconnect.net/+username/ in your browser.  You should
 see the file in the listing.  Clicking on the file should give you the contents.
 
-<div style="background-color:rgba(0, 255, 0, 0.0470588); padding:40px 0;">
-<h5> User Exercise </h5>
-Now, try creating a file called my-web-file and make it available through the
-Stash webserver.
+<div class="">
+<h5> Challenge </h5>
+<ol>
+<li> Create a file called <code>my-web-file</code> and make it available through the Stash webserver.
+</li>
+</ol>
 </div>
 
 <h2>Using data on Stash in compute jobs</h2> 
@@ -154,11 +160,13 @@ protein in implicit water. To get the necessary files, we use the *tutorial* com
 OSG. 
 
 Log in to OSG Connect:
+
 ~~~
 $ ssh username@login.osgconnect.net
 ~~~
 
 Type:
+
 ~~~
 $ tutorial namd-stash
 $ cd ~/osg-stash-namd
@@ -198,7 +206,7 @@ script.
 
 You can see that the job execution script "namd_stash_run.sh" has the following lines:
 
-<div style="background-color:rgba(255, 255, 0, 0.0470588); padding:40px 0;">
+<div class="" style="background-color:rgba(255, 255, 0, 0.0470588); padding:40px 0;">
 #!/bin/bash <br> 
 source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash #sourcing a shell specific file that adds the module command to your environment <br>
 module load namd/2.9  #loading the namd module <br>

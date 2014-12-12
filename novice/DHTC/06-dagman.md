@@ -19,8 +19,8 @@ systems help to deal with such tasks or data manipulations. DAGMan is a workflow
 system developed for distributed high throughput 
 computing. DAGMan (Directed Acyclic Graph Manager) handles computational jobs 
 that are mapped as a directed acyclic graph. Cyclic graph forms loop while acyclic graph does 
-not form a loop. In a directed acyclic graph, the connections between the nodes (jobs) have a 
-specific direction in addition to not forming loops. In this section, we will learn how to 
+not form loop. Directed acyclic graph does not form loop and the nodes (jobs) are connected 
+along specific direction. In this section, we will learn how to 
 apply DAGMan to run a set of molecular dynamics (MD) simulations. 
 
 
@@ -70,8 +70,8 @@ PARENT A2 CHILD A3  #Inter Dependency between Job A2 and A3
 
 The first four lines after the comment are the listing of the condor jobs  
 with name assignment:  A0, A1, A2 and A3. Here the condor job submit files are 
- namd_run_job0.submit, namd_run_job1.submit... that run the individual 
-MD simulations.  The next three lines describe the inter relation 
+ `namd_run_job0.submit, namd_run_job1.submit...` that run the individual 
+MD simulations.  The next three lines describe the relationship
 among the four jobs. 
 
 The above DAGMan script and the necessary files are available to the user 
@@ -167,7 +167,9 @@ Again we are missing the DAG file here. See if you can write the DAGfile for thi
 
 ###Job Retry and Rescue###
 
-In the above examples, the set of jobs have simple inter relationship.  Indeed,  DAGMan is capable of dealing with set of jobs with complex inter relations.  One may also write a DAG file for set of DAG files where each of the DAG file contains the workflow for set of condor jobs.  Also DAGMan can help with the resubmission of uncompleted portions of a DAG, when one or more nodes result in failure.  
+In the above examples, the set of jobs have simple inter relationship.  Indeed,  DAGMan is 
+capable of dealing with set of jobs with complex inter relations.  One may also write a DAG 
+file for set of DAG files where each of the DAG file contains the workflow for set of condor jobs.  Also DAGMan can help with the resubmission of uncompleted portions of a DAG, when one or more nodes result in failure.  
 
 ####Job Retry####
 
