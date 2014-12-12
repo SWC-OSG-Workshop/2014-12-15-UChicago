@@ -172,7 +172,9 @@ a [structure](http://en.wikipedia.org/wiki/Superoxide_dismutase#mediaviewer/File
 to [how the molecule behaves in a specified environment](https://www.youtube.com/watch?v=mk3cLd9PUPA&list=PL418E1C62DD9FC8BA&index=1).
 
 You should see the following files in the directory
+
 ~~~
+$ ls
 namd_stash_run.submit #HTCondor job submission script file.
 namd_stash_run.sh #Job execution script file.
 ubq_gbis_eq.conf #Input configuration for NAMD.
