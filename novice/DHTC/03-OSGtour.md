@@ -43,7 +43,7 @@ available modules:
 
 ~~~
 $ module avail
-------------------------------------- /cvmfs/oasis.opensciencegrid.org/osg/modules/modulefiles/Core --------------------------------------
+------------------------------------- /cvmfs/oasis.opensciencegrid.org/osg/modules/modulefiles/Core ---------------------------
    R/3.1.1                  casino/2.13.211           gromacs/4.6.5          muscle/3.8.31          sdpa/7.3.8
    SitePackage              cdo/1.6.4                 gromacs/5.0.0   (D)    namd/2.9               serf/1.37
    SparseSuite/4.2.1        cmake/3.0.1               hdf5/1.8.9             nco/4.3.0              settarg/5.6.2
@@ -116,14 +116,24 @@ without these modules loaded:
 ~~~
 
 The `module` command will helpfully let you know which modules are needed. In
-this case, you'll need fftw/3.3.4-gromacs, atlas, and lapack.  So you'll need to
-load them first:
+this case, you'll need the `fftw/3.3.4-gromacs`, `atlas`, and `lapack` modules in 
+order to load `gromacs`.  So you'll need to load them first:
 
 ~~~
 $ module load fftw/3.3.4-gromacs atlas lapack
 $ module load gromacs
 $ mdrun --version
 GROMACS:    gmx mdrun, VERSION 5.0
+~~~
+
+The `module` command also lets you view the currently loaded modules using
+`module list`:
+
+~~~
+$ module list
+
+Currently Loaded Modules:
+  1) fftw/3.3.4-gromacs   2) atlas   3) lapack   4) gromacs/5.0.0
 ~~~
 
 Finally, if you want to unload a module, type 
