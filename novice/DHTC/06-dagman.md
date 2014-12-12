@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: ../..
-title: Scientific Workflow Management - DAGMAN 
+title: Workflow Management - DAGMan
 ---
 <div class="objectives" markdown="1">
 
@@ -15,21 +15,21 @@ title: Scientific Workflow Management - DAGMAN
 
 In scientific computing, one may have to perform several computational tasks or 
 data manipulations that are inter related. Workflow management 
-systems help to deal with such tasks or data manipulations. DAGMan is a workflow managment 
+systems help to deal with such tasks or data manipulations. DAGMan is a workflow management 
 system developed for distributed high throughput 
 computing. DAGMan (Directed Acyclic Graph Manager) handles computational jobs 
 that are mapped as a directed acyclic graph. In this section, we will learn how to 
-apply DAGMan to run a set of molecular dynmaics (MD) simulations. 
+apply DAGMan to run a set of molecular dynamics (MD) simulations. 
 
-<h2> Running MD Simulation with DAGMAN   </h2> 
+<h2> Running MD Simulation with DAGMan   </h2> 
 
-At present, the recomended execution time to run a condor job on OSG is about 2-3 hours. Jobs
+At present, the recommended execution time to run a condor job on OSG is about 2-3 hours. Jobs
 requiring more than 2-3 hours, need to be submitted with the restart files. Manually 
 submitting small jobs repeatedly with restart files may not be practical in many 
 situations. DAGMan offers an elegant and simple solution to run the set of jobs. With 
 the DAGMan script one could run a long time scale MD simulations of biomolecules. 
 
-###Linear DAGS###
+###Linear DAG###
 
 In our first example, we will break the MD simulation in four steps and run it through the 
 DAGMan script. NAMD software is used to run each MD simulation. For the sake of 
@@ -47,10 +47,10 @@ parent of *A2* and job *A3* is parent of *A4*. In DAGMan script, this is express
 
 ~~~
 ######DAG file######    #comment
-Job A0 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submision script.
-Job A1 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submision script.
-Job A2 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submision script.
-Job A3 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submision script.
+Job A0 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submission script.
+Job A1 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submission script.
+Job A2 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submission script.
+Job A3 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submission script.
 PARENT A0 CHILD A1  #Inter Dependency between Job A0 and A1
 PARENT A1 CHILD A2  #Inter Dependency between Job A1 and A2 
 PARENT A2 CHILD A3  #Inter Dependency between Job A2 and A3
@@ -62,7 +62,7 @@ with name assignment:  A0, A1, A2 and A3. Here the condor job submit files are
 MD simulations.  The next three lines describe the inter relation 
 among the four jobs. 
 
-The above DAGMan script and the neccessary files are available to the user 
+The above DAGMan script and the necessary files are available to the user 
 by invoking the *tutorial* command. 
 
 ~~~
@@ -70,7 +70,7 @@ tutorial dagman-namd
 cd tutorial-dagman-namd
 ~~~
 
-The directory "tutorial-dagman-namd" contains all the neccessary files. The file 
+The directory "tutorial-dagman-namd" contains all the necessary files. The file 
 "linear.dag" is the DAGMan script. The files "namd_run_job0.submit, ..." are the 
 HTCondor script files that execute the files "namd_run_job0.sh,...".
 
@@ -106,12 +106,12 @@ $ condor_q username
 2 jobs; 0 completed, 0 removed, 1 idle, 1 running, 0 held, 0 suspended
 ~~~~
 
-We see two runing jobs. One is the dagman job which manages the execution of NAMD jobs.
+We see two running jobs. One is the dagman job which manages the execution of NAMD jobs.
 The other is the actual NAMD execution "namd_run_job0.sh". Once the dag 
 completes, you will see four .tar.gz files "OutFilesFromNAMD_job0.tar.gz, 
 OutFilesFromNAMD_job1.tar.gz, OutFilesFromNAMD_job2.tar.gz, 
 OutFilesFromNAMD_job3.tar.gz". If the output files are not empty, the jobs are 
-successfully completed. Of course, a through check up requires looking at the ouput 
+successfully completed. Of course, a through check up requires looking at the output 
 results.  
 
 ###Parallel DAG###
@@ -126,7 +126,7 @@ data dependency between the jobs.  This example is located at
 cd tutorial-dagman-namd/TwoLinearDAG
 ~~~
 
-The directory contains the input fiiles, job submission files and execuation scripts of the 
+The directory contains the input files, job submission files and execution scripts of the 
 jobs. What is missing here is the DAG file. See if you can write the DAGfile for this example 
 and submit the job. 
 
@@ -134,11 +134,11 @@ and submit the job.
 We consider one more example of jobs A0, A1, X, B0 and B1 that allows the cross communication 
 between two parallel jobs. The jobs A0 and B0 are two-independent NAMD simulations. After 
 finishing A0 and B0, we do some analysis with the job X. The jobs A1 and B1 are two MD 
-simulations independent of each other. The job X determins what is the simulation temperature 
+simulations independent of each other. The job X determines what is the simulation temperature 
 of MD simulations A1 and B1. In the DAGMan language, X is the parent of A1 and B1.  
 
 
-The input fiiles, job submission files and execuation scripts of the 
+The input files, job submission files and execution scripts of the 
 jobs are located at 
 
 ~~~
@@ -189,7 +189,6 @@ $ condor_submit_dag linear.dag.rescue
 
 #### Keypoints
 *   DAGMan (Directed Acyclic Graph Manager) handles computational jobs that are mapped as a directed acyclic graph.
-*   DAGMan script describe the interdepency between set of jobs.  
 *   *condor_submit_dag* - is the command to submit a dagman job. 
 *   One may write a DAGMan script consisting of several DAGMan jobs. 
 </div>
