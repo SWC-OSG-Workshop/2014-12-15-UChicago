@@ -20,7 +20,11 @@ system developed for distributed high throughput
 computing. DAGMan (Directed Acyclic Graph Manager) handles computational jobs 
 that are mapped as a directed acyclic graph. In this section, we will learn how to 
 apply DAGMan to run a set of molecular dynamics (MD) simulations. 
+
+
+<div class="objectives" markdown="1">
    <img alt="Software Carpentry banner" src="{{page.root}}/novice/DHTC/DAGManImages/Slide1.png" width="300">
+</div>
 
 <h2> Running MD Simulation with DAGMan   </h2> 
 
