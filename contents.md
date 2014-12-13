@@ -18,11 +18,11 @@ title: Lessons
 8.  [Reference...](novice/ref/01-shell.html)
 
 ## Unit II: [Version Control with Git](novice/git/index.html)
-1.  [Introducing Version Control](novice/python/00-intro.html)
-2.  [A Better Kind of Backup](novice/python/01-backup.html)
-3.  [Collaborating](novice/python/02-collab.html)
-4.  [Conflicts](novice/python/03-conflict.html)
-5.  [Open Science](novice/python/04-open.html)
+1.  [Introducing Version Control](novice/git/00-intro.html)
+2.  [A Better Kind of Backup](novice/git/01-backup.html)
+3.  [Collaborating](novice/git/02-collab.html)
+4.  [Conflicts](novice/git/03-conflict.html)
+5.  [Open Science](novice/git/04-open.html)
 6.  [Reference...](novice/ref/02-git.html)
 
 ## Unit III: [Programming with Python](novice/python/index.html)
