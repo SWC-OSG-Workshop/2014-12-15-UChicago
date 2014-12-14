@@ -6,14 +6,14 @@ title: Software Resources on OSG
 <div class="objectives" markdown="1">
 
 #### Objectives
-*   Learn what software resources are available and how to access them.
+*   Learn what software resources are available on the OSG and how to access them from compute jobs.
 
 </div>
 
 <h2> Available Resources on OSG </h2> 
 Commonly used software and libraries on the Open Science Grid are available in a
 central repository (known as OASIS) and accessed via the `module` command. We will see how to 
-search for, load, and use software packages.
+search for, load, and use software packages, whether on the submit node (`login.osgconnect.net`) or on the OSG grid.
 
 We will also cover the usage of the built-in `tutorial` command. Using `tutorial`,
 we load a variety of job templates that cover basic usage, specific use cases, and best practices.
@@ -35,7 +35,7 @@ to your environment. For example, initializing module for bash is done as follow
 $ source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash
 ~~~
 
-For other shells such as sh, zsh, tcsh, csh, etc., you would replace bash with the shell name (e.g. zsh).
+For other shells such as `sh`, `zsh`, `tcsh`, `csh`, etc., you would replace bash with the shell name (e.g. `zsh`).
 
 
 Once the distributed environment modules system is initialized, you can check the 
@@ -142,13 +142,10 @@ Finally, if you want to unload a module, type
 $ module unload R 
 ~~~
 
-<div class="">
-<h5>Challenge</h5>
-<ol>
-  <li>Load the wget application and run `wget --version`</li>
-  <li>Load the octave application and run `octave --version`</li>
-</ol>
-</div>
+> #### Challenge
+>  Load the wget application and run `wget --version`
+>  Load the octave application and run `octave --version`
+
 
 <h3> Tutorial Command </h3> 
 
@@ -187,7 +184,7 @@ R-wrapper.sh # The job execution file
 R.submit     # The job submission file (will discuss later in the lesson HTCondor scripts)
 ~~~
 
-Lets focus on `mciP.R` and the `R-wrapper.sh` scripts. The details of `R.submit` script 
+Let's focus on `mciP.R` and the `R-wrapper.sh` scripts. The details of `R.submit` script 
 will be discussed later when we learn HTCondor scripts.  
 
 The file `mciP.R` is a R script that calculates the value of *pi* using the Monte Carlo
