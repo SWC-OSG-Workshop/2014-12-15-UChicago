@@ -136,17 +136,22 @@ Currently Loaded Modules:
   1) fftw/3.3.4-gromacs   2) atlas   3) lapack   4) gromacs/5.0.0
 ~~~
 
-Finally, if you want to unload a module, type 
+Finally, if you want to unload a module, type: 
 
 ~~~
 $ module unload R 
 ~~~
 
-> 
+<p>
+</p>
+
 > #### Challenge
->  Load the `wget` application and run `wget --version`
->  Load the `octave` application and run `octave --version`
->
+>  <p>Load the `wget` application and run `wget --version`</p>
+>  <p>Load the `octave` application and run `octave --version`</p>
+
+<p>
+</p>
+
 
 
 <h3> Tutorial Command </h3> 
