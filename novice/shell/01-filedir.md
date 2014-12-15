@@ -15,6 +15,33 @@ title: Files and Directories
 
 </div>
 
+#### Before you begin
+
+In these lessons, we're going to explore Nelle's files.
+You can optionally download the example files and directories which Nelle is using,
+so that you can explore the same files as described in the lesson. To do this, download
+the zipped filesystem by clicking [this link](../../data/filesystem.zip). Unpack the zipped
+files - on Windows or a Mac, you can probably just double-click or click the downloaded
+file to unpack it. On linux you can type in a command like
+
+~~~
+$ unzip filesystem.zip
+~~~
+{:class="in"}
+
+Once you have Nelle's files and directories, change to Nelle's home directory to
+begin, by typing in the `cd` command:
+
+~~~
+$ cd filesystem/users/nelle
+~~~
+{:class="in"}
+
+Don't worry if you don't know what this command means yet! We will cover it soon.
+
+Now, let's get started exploring the Unix shell.
+
+
 The part of the operating system responsible for managing files and directories
 is called the [file system](../../gloss.html#filesystem).
 It organizes our data into files,
