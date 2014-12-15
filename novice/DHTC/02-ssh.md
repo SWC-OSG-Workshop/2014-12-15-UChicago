@@ -84,6 +84,13 @@ Password: ********
 ~~~
 {:class="in"}
 ~~~
+              *** Unauthorized use/access is prohibited. ***
+
+If you log on to this computer system, you acknowledge your awareness of and
+concurrence with the OSG Acceptable Use Policy; see
+
+https://osgconnect.net/aup-full
+
 [username@login01 ~]$
 ~~~
 {:class="out"}
