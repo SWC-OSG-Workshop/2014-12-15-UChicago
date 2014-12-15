@@ -23,104 +23,83 @@ You will need to accept an Acceptable Use Policy (AUP) in order to use OSG Conne
 
 Once you have signed up, it ought to take 15-30min to get your account approved and created.
 
-##Logging into OSG Connect 
+##Secure Shell Background
 
 Let's take a closer look at what happens when we use the shell
-on a desktop or laptop computer.
-The first step is to log in
+on a desktop or laptop computer.The first step is to log in
 so that the operating system knows who we are and what we're allowed to do.
-We do this by typing our username and password;
-the operating system checks those values against its records,
-and if they match,
-runs a shell for us.
+We do this by typing our username and password; the operating system checks 
+those values against its records, and if they match, runs a shell for us.
 
-As we type commands,
-the 1's and 0's that represent the characters we're typing are sent from the keyboard to the shell.
-The shell displays those characters on the screen to represent what we type,
-and then,
-if what we typed was a command,
-the shell executes it and displays its output (if any).
+As we type commands, the 1's and 0's that represent the characters we're 
+typing are sent from the keyboard to the shell. The shell displays those 
+characters on the screen to represent what we type, and then, if what we typed
+was a command, the shell executes it and displays its output (if any).
 
 What if we want to run some commands on another machine,
-such as the server in the basement that manages our database of experimental results?
-To do this,
-we have to first log in to that machine.
-We call this a [remote login](../../gloss.html#remote-login),
-and the other computer a remote computer.
-Once we do this,
-everything we type is passed to a shell running on the remote computer.
-That shell runs those commands on our behalf,
-just as a local shell would,
-then sends back output for our computer to display.
+such as the server in the basement that manages our database of experimental 
+results? To do this, we have to first log in to that machine. We call this a 
+[remote login](../../gloss.html#remote-login),and the other computer a remote 
+computer. Once we do this, everything we type is passed to a shell running on
+the remote computer. That shell runs those commands on our behalf, just as a 
+local shell would, then sends back output for our computer to display.
 
-The tool we use to log in remotely is the [secure shell](../../gloss.html#secure-shell),
-or SSH.
-In particular, the command `ssh username@computer`
-runs SSH and connects to the remote computer we have specified.
-After we log in,
-we can use the remote shell to use the remote computer's files and directories.
-Typing `exit` or Control-D
+The tool we use to log in remotely is [secure shell](../../gloss.html#secure-shell),
+or SSH. We can run the ssh program with the command `ssh username@computer` -- replacing 
+username with your username and computer with the remote computer's name!
+
+After we log in, we can use the remote shell to use the remote computer's files
+and directories. Typing `exit` or Control-D (the special "End of Line" command)
 terminates the remote shell and returns us to our previous shell.
 
-In the example below,
-the remote machine's command prompt is `osg>`
-instead of just `$`.
-To make it clearer which machine is doing what,
-we'll indent the commands sent to the remote machine
-and their output.
+## Using Secure Shell with OSG Connect
+Let's remind ourselves how to see where we are in a filesystem and what our name is 
+on the system.
 
-~~~
-$ pwd
-~~~
 {:class="in"}
 ~~~
-/users/vlad
+$ whoami
 ~~~
 {:class="out"}
 ~~~
-$ ssh vlad@login.osgconnect.net
+me
+~~~
+{:class="in"}
+~~~
+$ pwd
+~~~
+{:class="out"}
+~~~
+/Users/me
+~~~
+On a Mac, you will probably see somthing like the above. On Linux, you'd likely
+see  `/home` instead of `/Users`, and on Windows something like `C:\Users\me`. 
+
+Now we'll use SSH to talk to the OSG Connect server. You'll need to replace "username"
+with the username that you created when you signed up for OSG Connect:
+
+~~~
+$ ssh username@login.osgconnect.net
 Password: ********
 ~~~
 {:class="in"}
 ~~~
-    osg> hostname
+$ hostname
 ~~~
 {:class="in"}
 ~~~
-   osg 
+login01.osgconnect.net
 ~~~
 {:class="out"}
-~~~
-    osg> pwd
-~~~
-{:class="in"}
-~~~
-    /home/vlad
-~~~
-{:class="out"}
-~~~
-    osg> mkdir backup
-    osg> ls -F 
-~~~
-{:class="in"}
-~~~
-    backup/ (plus something) 
-~~~
-{:class="out"}
-~~~
-    osg> exit
-~~~
-{:class="in"}
 ~~~
 $ pwd
 ~~~
 {:class="in"}
 ~~~
-/users/vlad
+/home/username
 ~~~
-{:class="out"}
 
-The secure shell is called "secure" to contrast it with an older program called `rsh`,
+Secure shell is called "secure" to contrast it with an older program called `rsh`,
 which stood for "remote shell".
 Back in the day,
 when everyone trusted each other and knew every chip in their computer by its first name,
