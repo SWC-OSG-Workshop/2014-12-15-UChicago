@@ -142,7 +142,7 @@ Finally, if you want to unload a module, type:
 $ module unload R 
 ~~~
 
-> #### Challenge
+> #### Challenges
 > * Load the `wget` application and run `wget --version`
 > * Load the `octave` application and run `octave --version`
 
