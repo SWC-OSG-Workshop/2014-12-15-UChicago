@@ -79,7 +79,7 @@ $ module load R
 ~~~
 
 This loads the default R package for you. If the package you want has multiple versions, you should 
-give the version when loading the module: 
+give the version when loading the module as follows: 
 
 ~~~
 $ module load R/3.1.1
@@ -88,9 +88,9 @@ $ module load R/3.1.1
 Now you can do some test calculations with R. 
 
 ~~~
-$ R # invoke R package
+$ R 
 
-> cos(45)  # simple on-screen calculation with cosine function
+> cos(45)  
 [1] 0.525322
 
 ~~~
