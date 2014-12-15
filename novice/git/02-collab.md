@@ -121,11 +121,6 @@ Our local and remote repositories are now in this state:
 
 <img src="img/github-repo-after-first-push.svg" alt="GitHub Repository After First Push" />
 
-> #### The '-u' Flag
->
-> You may see a `-u` option used with `git push` in some documentation.
-> It is related to concepts we cover in our intermediate lesson,
-> and can safely be ignored for now.
 
 We can pull changes from the remote repository to the local one as well:
 
@@ -268,7 +263,5 @@ to share work between different people and machines.
 Create a repository on GitHub,
 clone it,
 add a file,
-push those changes to GitHub,
-and then look at the [timestamp](../../gloss.html#timestamp) of the change on GitHub.
-How does GitHub record times, and why?
+push those changes to GitHub. 
 </div>

@@ -320,8 +320,3 @@ pull her changes from the repository to create a conflict,
 then resolve it.
 </div>
 
-<div class="challenge" markdown="1">
-What does Git do
-when there is a conflict in an image or some other non-textual file
-that is stored in version control?
-</div>
