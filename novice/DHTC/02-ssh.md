@@ -56,22 +56,22 @@ terminates the remote shell and returns us to our previous shell.
 Let's remind ourselves how to see where we are in a filesystem and what our name is 
 on the system.
 
-{:class="in"}
 ~~~
 $ whoami
 ~~~
-{:class="out"}
+{:class="in"}
 ~~~
 me
 ~~~
-{:class="in"}
+{:class="out"}
 ~~~
 $ pwd
 ~~~
-{:class="out"}
+{:class="in"}
 ~~~
 /Users/me
 ~~~
+{:class="out"}
 On a Mac, you will probably see somthing like the above. On Linux, you'd likely
 see  `/home` instead of `/Users`, and on Windows something like `C:\Users\me`. 
 
@@ -83,6 +83,10 @@ $ ssh username@login.osgconnect.net
 Password: ********
 ~~~
 {:class="in"}
+~~~
+[username@login01 ~]$
+~~~
+{:class="out"}
 ~~~
 $ hostname
 ~~~
@@ -98,6 +102,7 @@ $ pwd
 ~~~
 /home/username
 ~~~
+{:class="out"}
 
 Secure shell is called "secure" to contrast it with an older program called `rsh`,
 which stood for "remote shell".
