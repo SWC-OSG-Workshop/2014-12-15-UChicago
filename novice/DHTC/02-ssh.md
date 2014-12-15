@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: ../..
-title: Getting Access to OSG 
+title: Getting Access to OSG Connect
 ---
 
 <div class="objectives" markdown="1">
@@ -17,9 +17,13 @@ title: Getting Access to OSG
 </div>
 
 ##Getting an account on OSG Connect
-If you do not have an account on OSG Connect, please sign up, either in advance of the course or first thing in the morning.. It takes 5-10 minutes to complete the sign up process and about 30 minutes to get your account activated.
+If you do not yet have an OSG Connect account, please follow the signup instructions here: http://osgconnect.net/signup
 
-##Log in to OSG Connect
+You will need to accept an Acceptable Use Policy (AUP) in order to use OSG Connect. 
+
+Once you have signed up, it ought to take 15-30min to get your account approved and created.
+
+##Logging into OSG Connect 
 
 Let's take a closer look at what happens when we use the shell
 on a desktop or laptop computer.
