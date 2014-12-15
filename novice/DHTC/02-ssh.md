@@ -136,34 +136,45 @@ either of which may include computer names.
 If we leave out a computer name,
 `scp` assumes we mean the machine we're running on.
 
-For example, this command copies our latest results to the 
-osg login node:
+Let's re-use a file from previous lessons and send it to OSG Connect. 
+Create the file `mars.txt` that contains the following (hint: use nano):
+
+~~
+Cold and dry, but everything is my favorite color
+The two moons may be a problem for Wolfman
+But the Mummy will appreciate the lack of humidity
+~~~
+
+Now that we've created this file, we'll copy it to OSG Connect:
 
 ~~~
-$ scp results.dat vlad@login.osgconnect.net:~/backup/results-2011-11-11.dat
+$ scp mars.txt username@login.osgconnect.net:~/mars.txt
 Password: ********
 ~~~
 {:class="in"}
 ~~~
-results.dat              100%  9  1.0 MB/s 00:00
+mars.txt              100%  4  1.0 MB/s 00:00
 ~~~
 {:class="out"}
 
 Copying a whole directory is similar:
 we just use the `-r` option to signal that we want copying to be recursive.
-For example,
-this command copies all of our results from the backup server to our laptop:
+
+For this example, we'll use the 'filesystem' directory we worked with in the
+previous lessons and transfer it to OSG Connect.
 
 ~~~
-$ scp -r vlad@login.osgconnect.net:~/backups .
+$ scp -r username@login.osgconnect.net:~/Downloads/filesystem .
 Password: ********
 ~~~
 {:class="in"}
 ~~~
-results-2011-09-18.dat              100%  7  1.0 MB/s 00:00
-results-2011-10-04.dat              100%  9  1.0 MB/s 00:00
-results-2011-10-28.dat              100%  8  1.0 MB/s 00:00
-results-2011-11-11.dat              100%  9  1.0 MB/s 00:00
+access.log                                    100%   18     0.0KB/s   00:00
+backup.log                                    100%    0     0.0KB/s   00:00
+hardware.cfg                                  100%   23     0.0KB/s   00:00
+network.cfg                                   100%   12     0.0KB/s   00:00
+backup.log                                    100%    0     0.0KB/s   00:00
+...
 ~~~
 {:class="out"}
 
