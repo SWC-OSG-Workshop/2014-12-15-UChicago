@@ -52,11 +52,11 @@ $ echo "Hello world" > my_hello_world
 
 <h2>Transferring files to and from Stash using SCP </h2> 
 
-We can transfer files to Stash using scp. First, let's 
-look at transferring files using scp.  Scp is a counterpart to ssh that allows for
+We can transfer files to Stash using `scp`. First, let's 
+look at transferring files using `scp`.  `Scp` is a counterpart to ssh that allows for
 secure, encrypted file transfers between systems using your ssh credentials.    
 
-To transfer a file from Stash using scp, you'll need to run scp with the
+To transfer a file from Stash using `scp`, you'll need to run `scp` with the
 source and destination.  Files on remote systems are indicated using
 user@machine:/path/to/file .  Let's copy the file we just created from Stash to
 our local system:
@@ -65,25 +65,18 @@ our local system:
 $ scp username@login.osgconnect.net:~/data/my_hello_world .
 ~~~
 
-As you can see, scp uses similar syntax to the cp command that you were shown
-previously.  To copy directories using scp, you'll just pass the `-r` option to
-scp.  E.g:
+As you can see, `scp` uses similar syntax to the `cp` command that you were shown
+previously.  To copy directories using `scp`, you'll just pass the `-r` option to
+it.  E.g:
 
 ~~~
 $ scp -r username@login.osgconnect.net:~/data/my-directory .
 ~~~
 
-<div style="">
-<h5>Challenges</h5>
-<ol>
-<li>Create a directory with a file called <code>hello_world_2</code> in the 
-    <code>~/data</code> directory and copy it from Stash to your local system.
-</li>
-<li>Create a directory called <code>hello_world_3</code> on your local system 
-and copy it to the <code>data</code> directory.
-</li>
-</ol>
-</div>
+> #### Challenges
+>
+> * Create a directory with a file called `hello_world_2` in the `~/data` directory and copy it from Stash to your local system.
+> * Create a directory called `hello_world_3` on your local system and copy it to the `data` directory.
 
 <h2>Transferring files to and from Stash using Globus</h2>
 An alternate method for accessing Stash is to use Globus.  Globus allows you
@@ -122,13 +115,12 @@ file on your laptop and click on the right arrow on the top of the screen to
 start a transfer to Stash. You can transfer files or directories to your
 laptop by selecting it in the Stash window and selecting the left arrow.
 
-<div class="">
-<h5> Challenges </h5>
-<ol>
-<li> Copy a file to Stash from your laptop using Globus.  </li>
-<li> Next copy the <code>my_hello_world</code> file from Stash to your laptop using Globus.</li>
-</ol>
-</div>
+> #### Challenges 
+>
+> * Copy a file to Stash from your laptop using Globus.  
+> * Next copy the `my_hello_world` file from Stash to your laptop using Globus.
+
+
 <h2>Transferring files from Stash using HTTP</h2>
 Stash also allows you to access files using your web browser.  In order to do
 this, you'll need to put your file in `~/public`or `~/data/public` (the two locations 
@@ -144,13 +136,10 @@ $ echo "This is served over the web" > web-file
 Now go to `http://stash.osgconnect.net/+username/` in your browser.  You should
 see the file in the listing.  Clicking on the file should give you the contents.
 
-<div class="">
-<h5> Challenge </h5>
-<ol>
-<li> Create a file called <code>my-web-file</code> and make it available through the Stash webserver.
-</li>
-</ol>
-</div>
+> #### Challenge 
+>
+> * Create a file called `my-web-file` and make it available through the Stash webserver.
+
 
 <h2>Using data on Stash in compute jobs</h2> 
 
