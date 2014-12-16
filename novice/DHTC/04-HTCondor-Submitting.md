@@ -23,7 +23,7 @@ First, we log in to OSG Connect:
 
 ~~~
 $ ssh username@login.osgconnect.net  # username is your username
-$ password:                          # enter your password
+password:                            # enter your password
 ~~~
 
 Let's introduce two commands that will be useful throughout your OSG Connect
