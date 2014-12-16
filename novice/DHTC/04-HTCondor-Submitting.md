@@ -385,3 +385,28 @@ Job 829.0 has been marked for removal.
 *   *condor_q* - HTCondor's job monitoring command.     
 *   *condor_rm* - HTCondor's job removal command.     
 </div>
+
+## Challenges
+<div class="challenge" markdown="1">
+What happens if we leave the **Queue** line out of a submit file?
+</div>
+
+<div class="challenge" markdown="1">
+What happens if we write only `Queue`, with no argument?
+</div>
+
+<div class="challenge" markdown="1">
+`condor_history -long username` gives a LOT of extended information about
+your past jobs, ordered as key-value pairs.  Try it with your a single
+job from your last cluster:
+~~~
+$ condor_history -long ######.0
+~~~
+
+Included among these attributes is the `RemoteWallClockTime` parameter,
+which tells how long your job ran on the remote worker.  How might you
+collect this value across all your historical jobs?
+
+(Remember that the `grep` command can be used to pick out specific
+patterns from text.)
+</div>
