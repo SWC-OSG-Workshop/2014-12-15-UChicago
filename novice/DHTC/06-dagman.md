@@ -55,7 +55,21 @@ job *A0* serves as an input for the job *A1* and so forth. The input and output
 dependencies of the jobs are such that they need to be progressed in a linear 
 fashion:  *A0-->A1-->A2-->A3*. These set of jobs clearly represents an 
 acyclic graph. In DAGMan language, job *A0* is parent of job *A1*,  job *A1* is 
-parent of *A2* and job *A3* is parent of *A4*. In the DAG file `linear.dag`, this is expressed as 
+parent of *A2* and job *A3* is parent of *A4*. 
+
+The DAGMan script and the necessary files are available to the user 
+by invoking the *tutorial* command. 
+
+~~~
+$ tutorial dagman-namd
+$ cd tutorial-dagman-namd
+~~~
+
+The directory `tutorial-dagman-namd` contains all the necessary files. The file 
+`linear.dag` is the DAGMan script. The files `namd_run_job0.submit, ...` are the 
+HTCondor script files that execute the files `namd_run_job0.sh,...`.
+
+Let us take a look at the DAG file `linear.dag`.  
 
 ~~~
 $ nano linear.dag #open the linear.dag file
@@ -75,18 +89,6 @@ with name assignment:  A0, A1, A2 and A3. Here the condor job submit files are
  `namd_run_job0.submit, namd_run_job1.submit...` that run the individual 
 MD simulations.  The next three lines describe the relationship
 among the four jobs. 
-
-The above DAGMan script and the necessary files are available to the user 
-by invoking the *tutorial* command. 
-
-~~~
-$ tutorial dagman-namd
-$ cd tutorial-dagman-namd
-~~~
-
-The directory `tutorial-dagman-namd` contains all the necessary files. The file 
-`linear.dag` is the DAGMan script. The files `namd_run_job0.submit, ...` are the 
-HTCondor script files that execute the files `namd_run_job0.sh,...`.
 
 
 Now we submit the DAGMan job.  
@@ -134,8 +136,8 @@ successfully completed. Of course, a through check up requires looking at the ou
 </div>
 
 Now we consider the workflow of two-linear set of jobs A0, A1, B0 and B1. Again these are 
-NAMD jobs. The job A1 is parent 
-of A0 and the job B1 is the parent of B0. The jobs A0 and A1 do not depend on B0 and B1. This 
+NAMD jobs. The job A0 is parent 
+of A0 and the job B0 is the parent of B1. The jobs A0 and A1 do not depend on B0 and B1. This 
 means we have two parallel DAGs that are represented as A0->A1 and B0->B1. The arrow shows the 
 data dependency between the jobs.  This example is located at 
 
@@ -144,7 +146,7 @@ $ cd tutorial-dagman-namd/TwoLinearDAG
 ~~~
 
 The directory contains the input files, job submission files and execution scripts of the 
-jobs. What is missing here is the DAG file. See if you can write the DAGfile for this example 
+jobs. What is missing here is the `.dag` file. See if you can write the DAGfile for this example 
 and submit the job. 
 
 ###X-DAG###
@@ -165,7 +167,7 @@ jobs are located at
 $ cd tutorial-dagman-namd/X-DAG
 ~~~
 
-Again we are missing the DAG file here. See if you can write the DAGfile for this example 
+Again we are missing the `.dag` file here. See if you can write the DAGfile for this example 
 
 ###Job Retry and Rescue###
 
