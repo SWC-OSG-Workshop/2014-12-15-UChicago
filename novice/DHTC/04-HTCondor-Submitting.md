@@ -238,8 +238,9 @@ Log = job.log
 Queue 1
 ~~~
 
-##Job submission##
-Submit the job using condor_submit.
+## Job submission ##
+
+Submit the job using `condor_submit`.
 
 ~~~
 $ condor_submit tutorial01.submit
@@ -312,7 +313,7 @@ $ connect watch
 ~~~
 
 When your job has completed, it will disappear from the list.  To close
-`connect watch`, hold down Ctrl and press C.
+`connect watch`, press control-C -- hold down Control and press C.
 
 ##Job history##
 Once your job has finished, you can get information about its execution
