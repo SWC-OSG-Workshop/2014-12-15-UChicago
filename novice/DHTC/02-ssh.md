@@ -304,7 +304,7 @@ Password: ********
 Paste the content that you copy at the end of `~/.ssh/authorized_keys`.
 
 ~~~
-    osg> nano ~/.ssh/authorized_keys`.
+$ nano ~/.ssh/authorized_keys`.
 ~~~
 {:class="in"}
 
@@ -312,7 +312,7 @@ After append the content, logout of the remote machine and try login again. If
 you setup your SSH key correctly you won't need to type your password.
 
 ~~~
-    osg> exit
+$ exit
 ~~~
 {:class="in"}
 ~~~
