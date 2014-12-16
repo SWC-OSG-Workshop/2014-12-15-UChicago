@@ -6,15 +6,16 @@ title: Job submission on OSG Connect
 <div class="objectives" markdown="1">
 
 #### Objectives
-*   Learn how to submit HTCondor Jobs.   
-*   Learn how to monitor the running Jobs.    
+*   Learn how to submit HTCondor jobs.   
+*   Learn how to monitor the running jobs.    
 </div>
 
-<h2>Overview</h2> 
-In this section, we will learn the basics of HTCondor in submitting and monitoring jobs. The jobs are 
-submitted through the login node of OSG Connect. The submitted jobs are executed on the remote worker 
-node(s) and the outputs are transfered back to the login node. In the HTCondor job submit file, we have 
-to describe how to execute the program and transfer the output data. 
+<h2>Overview</h2> In this section, we will learn the basics of HTCondor 
+in submitting and monitoring workloads, or "jobs". The jobs are         
+submitted through the login node of OSG Connect. The submitted jobs are 
+executed on the remote worker node(s) and the outputs are transfered    
+back to the login node. In the HTCondor job submit file, we have to     
+describe how to execute the program and transfer the output data.       
 
 <h2>Login to OSG Connect </h2>
 
@@ -22,7 +23,7 @@ First, we log in to OSG Connect:
 
 ~~~
 $ ssh username@login.osgconnect.net  # username is your username
-$ passwd:                            # enter your password
+$ password:                          # enter your password
 ~~~
 
 Let's introduce two commands that will be useful throughout your OSG Connect
