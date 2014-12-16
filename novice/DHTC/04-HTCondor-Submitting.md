@@ -25,22 +25,123 @@ $ ssh username@login.osgconnect.net  # username is your username
 $ passwd:                            # enter your password
 ~~~
 
-We will get the relevant example files using the *tutorial* command. Run the quickstart tutorial:
+Let's introduce two commands that will be useful throughout your OSG Connect
+usage: `connect` and `tutorial`.
+
+`Connect` is a single interface to tools that enhance or simplify your use
+of the OSG Connect platform.  We occasionally add components to this command
+to provide new capabilities, or to make common tasks easier.  Let's look at
+usage:
 
 ~~~
-$ tutorial quickstart                # creates a directory "tutorial-quickstart".
-$ cd ~/tutorial-quickstart           # relevant script and input files are inside this directory
+$ connect
+usage: connect <subcommand> [args]
+       connect addsite user@hostname sched-type
+       connect cclog 
+       connect debug 
+       connect histogram [-l | --last] [user]
+       connect project 
+       connect reset 
+       connect setup 
+       connect show-projects [-u username] [projectname]
+       connect status [-f | --full]
+       connect submit 
+       connect watch [seconds [user]]
 ~~~
 
-We will look at two files in detail: "short.sh" and "tutorial01"
+Each of these subcommands has a specific role, and we'll explore some of them
+during this workshop.  Fow now, just take a look at two:
+
+~~~
+$ connect show-projects
+Based on your username (dgc), here is a list of projects you have
+access to:
+  * SWC-OSG-UC14
+~~~
+
+Each time you run a workload on OSG Connect, you need a project name to
+associate it.  For your research work later on, we can get you started
+with a permanent project, but for now you should find the SWC-OSG-UC14
+project available.  Some of you might also find the ConnectTrain project
+listed -- that is OK but not necessary.
+
+~~~
+$ connect project
+~~~
+
+If you're a heavy user of OSG Connect, you may end up with multiple projects.
+`connect project` is a way both to see your available projects, and to
+change which project is used for your job submission.  Your choice here is
+saved, so whatever project you selected most recently is used for all future
+workloads, until you change it again.
+
+Every user should start out with a reasonable project -- it's not necessary
+to change your project to get started computing.
+
+The second command to learn up front is `tutorial`.  We will get our
+example files for all today's lessons using `tutorial`.
+
+~~~
+$ tutorial
+usage: tutorial list                 - show available tutorials
+       tutorial info <tutorial-name> - show details of a tutorial 
+       tutorial <tutorial-name>      - set up a tutorial 
+
+Currently available tutorials: 
+R ..................... Estimate Pi using the R programming language
+cp2k .................. How-to for the electronic structure package CP2K
+dagman-namd ........... Launch a series of NAMD simulations via Condor DAG
+error101 .............. Use condor_q -better-analyze to analyze stuck jobs
+exitcode .............. Use HTCondor's periodic_release to retry failed jobs
+htcondor-transfer ..... Transfer data via HTCondor's own mechanisms
+namd .................. Run a molecular dynamics simulation using NAMD
+oasis-parrot .......... Software access with OASIS and Parrot
+octave ................ Matrix manipulation via the Octave programming language
+pegasus ............... An introduction to the Pegasus job workflow manager
+photodemo ............. A complete analysis workflow using HTTP transfer
+quickstart ............ How to run your first OSG job
+root .................. Inspect ntuples using the ROOT analysis framework
+scaling ............... Learn to steer jobs to particular resources
+scaling-up-resources .. A simple multi-job demonstration
+software .............. Software access tutorial
+stash-chirp ........... Use the chirp I/O protocol for remote data access
+stash-http ............ Retrieve job input files from Stash via HTTP
+stash-namd ............ Provide input files for NAMD via Stash's HTTP interface
+swift ................. Introduction to the SWIFT parallel scripting language
+
+Enter "tutorial name-of-tutorial" to clone and try out a tutorial.
+~~~
+
+Each of these rows above is a tutorial that you can work through on your
+own, after the workshop.  We add new tutorials from time to time, as well.
+Each tutorial has a `README.md` file within that gives teaching material
+on what the tutorial is trying to illustrate, and you can read them online
+at the [OSG Connectbook](http://osgconnect.net/book).
+
+Note the word _clone_ in that last line of output.  There's no mistake
+that it's the same term as we used for copying a git repository.  Each
+tutorial is version-controlled, and actually resides on GitHub.  When
+you use the `tutorial` command you're getting content from there.
+
+Let's get started with the *quickstart* tutorial:
+
+~~~
+$ tutorial quickstart       # creates a directory "tutorial-quickstart"
+$ cd tutorial-quickstart    # script and input files are inside this directory
+~~~
+
+We will look at two files in detail: "short.sh" and "tutorial01.submit"
 
 ##Job execution script##
-Inside the tutorial directory that you created or installed previously, create a test script to 
-execute as your job:
+
+Inside the tutorial directory, open up `short.sh` in an editor.
 
 ~~~
 $ nano short.sh
 ~~~
+
+This is a shell script, quite ordinary and much like the ones we worked
+with in Unit I.
 
 ~~~
 #!/bin/bash
@@ -55,16 +156,20 @@ sleep ${1-15}
 echo "Science complete!"
 ~~~
 
-To close nano, hold down Ctrl and press X. Press Y to save, and then Enter
-Now, make the script executable.
+To close nano, hold down Ctrl and press X. Press Y to save, and then
+Enter Now, make the script executable.  Recall that this is not
+necessary for shell programs that you create and run locally.  However,
+_it is extremely important for jobs running on the grid_.  So is the
+"shbang" line (`#!/bin/sh`).
 
 ~~~
 $ chmod +x short.sh 
 ~~~
 
-Since we used the tutorial command, all files are already in your workspace. Run 
-the job locally when setting up a new job type, it is important to test your 
-job outside of HTCondor before submitting into the Open Science Grid. 
+Since we used the tutorial command, all files are already in your       
+workspace. Run the job locally when setting up a new job type -- it is  
+important to test your job outside of HTCondor before submitting into   
+the Open Science Grid.                                                  
 
 ~~~
 $ ./short.sh
@@ -86,11 +191,13 @@ Science complete!
 ~~~
 
 ##Job submission file##
-Create an HTCondor submit file. So far, so good! Next we will create a 
-simple (if verbose) HTCondor submit file.
+So far, so good! Next we will create a simple (if verbose) HTCondor
+submit file.  A submit file tells the grid software _how_ to run
+your workload, with what properties and arguments, and how to collect
+and return output to you.
 
 ~~~
-$ nano tutorial01
+$ nano tutorial01.submit
 ~~~
 
 ~~~
@@ -119,14 +226,16 @@ Queue 1
 Submit the job using condor_submit.
 
 ~~~
-$ condor_submit tutorial01
+$ condor_submit tutorial01.submit
 Submitting job(s). 
 1 job(s) submitted to cluster 823.
 ~~~
 
 ##Job status##
 
-The condor_q command tells the status of currently running jobs. Generally you will want to limit it to your own jobs:
+Your first job is on the grid! The `condor_q` command tells the status of
+currently running jobs. Generally you will want to limit it to your own
+jobs by adding your own username to the command.
 
 ~~~
 $ condor_q username
@@ -136,8 +245,9 @@ $ condor_q username
 1 jobs; 0 completed, 0 removed, 0 idle, 1 running, 0 held, 0 suspended
 ~~~
 
-If you want to see all jobs running on the system, use condor_q without any extra parameters.
-You can also get status on a specific job cluster:
+If you want to see all jobs running on the system, use condor_q without
+any extra parameters.  You can also get status on a specific job
+cluster -- the number that `condor_submit` gave you.
 
 ~~~
 $ condor_q 823
@@ -147,13 +257,32 @@ $ condor_q 823
 1 jobs; 0 completed, 0 removed, 0 idle, 1 running, 0 held, 0 suspended
 ~~~
 
-Note the ST (state) column. Your job will be in the I state (idle) if it hasn't 
-started yet. If it's currently scheduled and running, it will have state R (running). If it has completed already, it will not appear in condor_q.
+A _job cluster_ identifies one batch of jobs.  The batch could have one job
+or ten thousand in it -- what matters is that each time a submit file says
+"Queue", you get a cluster.  The individual jobs within a job cluster are
+identified by the numbers after the dot in the job ID -- so in this example,
+823 is the job cluster, and 823.0 is the job ID (or jobid) of job 0 in that
+cluster.
 
-Let's wait for your job to finish – that is, for condor_q not to show the job in its output. `connect watch` helps for this.  Let's submit the job again, and watch condor_q output at five-second intervals (the default):
+Note the ST (state) column. Your job will be in the **I** state (idle)
+if it hasn't started yet. If it's currently scheduled and running, it
+will have state **R** (running). If it has completed already, it will
+not appear in condor_q.
+
+You may sometimes see jobs in **H** state.  These are _held_ jobs. Held
+jobs are stalled, usually for a specific reason, and won't progress until
+released.  Until you gain savvy with diagnosing why a job is held and
+solving it on your own, you may contact the OSG Connect support team
+for help with held jobs.
+
+Let's wait for your job to finish – that is, for condor_q not to show
+the job in its output. `connect watch` helps for this.  Let's submit
+the job again, and watch condor_q output at five-second intervals (the
+default). Your first job has probably already completed by now, so
+submit a new one first:
 
 ~~~
-$ condor_submit tutorial01
+$ condor_submit tutorial01.submit
 Submitting job(s). 
 1 job(s) submitted to cluster 823
 $ connect watch
@@ -163,7 +292,8 @@ When your job has completed, it will disappear from the list.  To close
 `connect watch`, hold down Ctrl and press C.
 
 ##Job history##
-Once your job has finished, you can get information about its execution from the condor_history command:
+Once your job has finished, you can get information about its execution
+from the `condor_history` command:
 
 ~~~
 $ condor_history 823
@@ -171,16 +301,20 @@ $ condor_history 823
  823.0   username            8/21 09:46   0+00:00:12 C   8/21 09:46 /home/username/
 ~~~
 
-You can see much more information about your job's final status using the -long option.
+You can see much more information about your job's final status using
+the -long option.
 
 
 ##Job output##
-Once your job has finished, you can look at the files that HTCondor has returned to the 
-working directory. If everything was successful, it should have returned: a log file from 
-Condor for the job cluster: jog.log
-* an output file for each job's output: job.output
-* an error file for each job's errors: job.error
-* a log  file for each job's log: job.log
+
+Once your job has finished, you can look at the files that HTCondor
+has returned to the working directory. If everything was successful,
+it should have returned:
+
+* a log file from Condor for the job cluster: `job.log`
+* an output file for each job's output: `job.output`
+* an error file for each job's errors: `job.error`
+
 Read the output file. It should be something like this:
 
 ~~~
@@ -193,12 +327,37 @@ Sleeping for 10 seconds...
 Et voila!
 ~~~ 
 
+## Unscheduling jobs ##
+
+Once you know how to create files, you want to know how to delete
+them.  And once you can schedule workloads across thousands of computers
+simultaneously, you need to know how to remove them.  The command for that
+is `condor_rm`, and it takes only one argument: the job cluster or job ID.
+
+~~~
+$ condor_submit tutorial01.submit
+Submitting job(s). 
+1 job(s) submitted to cluster 829
+$ condor_rm 829
+Cluster 829 has been marked for removal.
+~~~
+
+Or alternately:
+
+~~~
+$ condor_submit tutorial01.submit
+Submitting job(s). 
+1 job(s) submitted to cluster 829
+$ condor_rm 829.0
+Job 829.0 has been marked for removal.
+~~~
+
 
 <div class="keypoints" markdown="1">
 
 #### Key Points
 *   HTCondor shedules and monitors your Jobs. 
-*   To submit a job to HTCondor, the user need to prepare the Job execution and Job Submission scripts. 
+*   To submit a job to HTCondor, you must prepare the job execution and job submission scripts. 
 *   *condor_submit* - HTCondor's job submission command.     
 *   *condor_q* - HTCondor's job monitoring command.     
 *   *condor_rm* - HTCondor's job removal command.     
