@@ -55,7 +55,7 @@ during this workshop.  Fow now, just take a look at two:
 
 ~~~
 $ connect show-projects
-Based on your username (dgc), here is a list of projects you have
+Based on your username (username), here is a list of projects you have
 access to:
   * SWC-OSG-UC14
 ~~~
