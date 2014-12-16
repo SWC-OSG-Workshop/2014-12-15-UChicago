@@ -17,45 +17,55 @@ title: Getting Access to OSG Connect
 </div>
 
 ##Getting an account on OSG Connect
-If you do not yet have an OSG Connect account, please follow the signup instructions here: http://osgconnect.net/signup
+If you do not yet have an OSG Connect account, please follow the signup instructions here: [http://osgconnect.net/signup]
 
 You will need to accept an Acceptable Use Policy (AUP) in order to use OSG Connect. 
 
-Once you have signed up, it ought to take 15-30min to get your account approved and created.
+Once you have signed up, it takes 15-30 minutes to get your account
+approved and created.
 
 ##Secure Shell Background
 
-Let's take a closer look at what happens when we use the shell
-on a desktop or laptop computer.The first step is to log in
-so that the operating system knows who we are and what we're allowed to do.
-We do this by typing our username and password; the operating system checks 
-those values against its records, and if they match, runs a shell for us.
+Let's take a closer look at what happens when we use the shell on a
+desktop or laptop computer. The first step is to log in so that the
+operating system knows who we are and what we're allowed to do.  We do
+this by typing our username and password; the operating system checks
+those values against its records, and if they match, runs a shell for
+us.
 
-As we type commands, the 1's and 0's that represent the characters we're 
-typing are sent from the keyboard to the shell. The shell displays those 
-characters on the screen to represent what we type, and then, if what we typed
-was a command, the shell executes it and displays its output (if any).
+As we type commands, the 1's and 0's that represent the characters we're
+typing are sent from the keyboard to the shell. The shell displays those
+characters on the screen to represent what we type, and then, if what we
+typed was a command, the shell executes it and displays its output (if
+any).
 
 What if we want to run some commands on another machine,
 such as the server in the basement that manages our database of experimental 
 results? To do this, we have to first log in to that machine. We call this a 
-[remote login](../../gloss.html#remote-login),and the other computer a remote 
+[remote login](../../gloss.html#remote-login), and the other computer a remote 
 computer. Once we do this, everything we type is passed to a shell running on
 the remote computer. That shell runs those commands on our behalf, just as a 
 local shell would, then sends back output for our computer to display.
 
-The tool we use to log in remotely is [secure shell](../../gloss.html#secure-shell),
-or SSH. We can run the ssh program with the command `ssh username@computer` -- replacing 
-username with your username and computer with the remote computer's name!
+Once we've logged in remotely, our local terminal is doing _nothing_ for
+us except sending input to the remote server, and displaying output on
+its behalf.  It's just a "tunnel" that information passes through.
 
-After we log in, we can use the remote shell to use the remote computer's files
-and directories. Typing `exit` or Control-D (the special "End of Line" command)
-terminates the remote shell and returns us to our previous shell.
+The tool we use to log in remotely is [secure shell](../../gloss.html#secure-shell),
+or SSH. We can run the ssh program with the command `ssh
+username@computer` -- replacing username with your username and
+computer with the remote computer's name!
+
+After we log in, we can use the remote shell to use the remote
+computer's files and directories. Typing `exit` or Control-D (the
+special "End of File" command) terminates the remote shell and returns
+us to our previous shell.
 
 ## Using Secure Shell with OSG Connect
-Let's remind ourselves how to see where we are in a filesystem and what our name is 
-on the system.
+Let's remind ourselves how to see where we are in a filesystem and what
+our name is on the system.
 
+On a Mac, you will probably see somthing like this:
 ~~~
 $ whoami
 ~~~
@@ -72,11 +82,13 @@ $ pwd
 /Users/me
 ~~~
 {:class="out"}
-On a Mac, you will probably see somthing like the above. On Linux, you'd likely
-see  `/home` instead of `/Users`, and on Windows something like `C:\Users\me`. 
 
-Now we'll use SSH to talk to the OSG Connect server. You'll need to replace "username"
-with the username that you created when you signed up for OSG Connect:
+On Linux, you'd likely see  `/home` instead of `/Users`, and on Windows
+something like `C:\Users\me`. 
+
+Now we'll use SSH to talk to the OSG Connect server. You'll need to
+replace "username" with the username that you created when you signed up
+for OSG Connect:
 
 ~~~
 $ ssh username@login.osgconnect.net
@@ -111,30 +123,26 @@ $ pwd
 ~~~
 {:class="out"}
 
-Secure shell is called "secure" to contrast it with an older program called `rsh`,
-which stood for "remote shell".
-Back in the day,
-when everyone trusted each other and knew every chip in their computer by its first name,
-people didn't encrypt anything except the most sensitive information when sending it over a network.
-However,
-that meant that villains could watch network traffic,
-steal usernames and passwords,
-and use them for all manner of nefarious purposes.
-SSH was invented to prevent this (or at least slow it down).
-It uses several sophisticated, and heavily tested, encryption protocols
-to ensure that outsiders can't see what's in the messages
-going back and forth between different computers.
+> #### Security
+> Secure shell is called "secure" to contrast it with an older program
+> called `rsh`, which stood for "remote shell".  Back in the day, when
+> everyone trusted each other and knew every chip in their computer by its
+> first name, people didn't encrypt anything except the most sensitive
+> information when sending it over a network.  However, that meant that
+> villains could watch network traffic, steal usernames and passwords,
+> and use them for all manner of nefarious purposes.  SSH was invented to
+> prevent this (or at least slow it down).  It uses several sophisticated,
+> and heavily tested, encryption protocols to ensure that outsiders can't
+> see what's in the messages going back and forth between different
+> computers.
 
-`ssh` has a companion program called `scp`,
-which stands for "secure copy".
-It allows us to copy files to or from a remote computer using the same kind of connection as SSH.
-The command's name combines `cp`'s and `ssh`'s,
-and so does its operation.
-To copy a file,
-we specify the source and destination paths,
-either of which may include computer names.
-If we leave out a computer name,
-`scp` assumes we mean the machine we're running on.
+`ssh` has a companion program called `scp`, which stands for "secure
+copy".  It allows us to copy files to or from a remote computer using
+the same kind of connection as SSH.  The command's name combines `cp`'s
+and `ssh`'s, and so does its operation.  To copy a file, we specify
+the source and destination paths, either of which may include computer
+names.  If we leave out a computer name, `scp` assumes we mean the
+machine we're running on.
 
 Let's re-use a file from previous lessons and send it to OSG Connect. 
 Create the file `mars.txt` that contains the following (hint: use nano):
@@ -160,9 +168,10 @@ mars.txt              100%  4  1.0 MB/s 00:00
 Copying a whole directory is similar:
 we just use the `-r` option to signal that we want copying to be recursive.
 
-For this example, we'll use the 'filesystem' directory we worked with in the
-previous lessons and transfer it to OSG Connect. Note that the `~/Downloads/filesystem`
-part will need to be changed to wherever you downloaded yesterday's material to.
+For this example, we'll use the 'filesystem' directory we worked with
+in the previous lessons and transfer it to OSG Connect. Note that the
+`~/Downloads/filesystem` part will need to be changed to wherever you
+downloaded yesterday's material to.
 
 ~~~
 $ scp -r ~/Downloads/filesystem username@login.osgconnect.net:~
