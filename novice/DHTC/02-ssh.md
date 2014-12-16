@@ -139,7 +139,7 @@ If we leave out a computer name,
 Let's re-use a file from previous lessons and send it to OSG Connect. 
 Create the file `mars.txt` that contains the following (hint: use nano):
 
-~~
+~~~
 Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
 But the Mummy will appreciate the lack of humidity
@@ -161,10 +161,11 @@ Copying a whole directory is similar:
 we just use the `-r` option to signal that we want copying to be recursive.
 
 For this example, we'll use the 'filesystem' directory we worked with in the
-previous lessons and transfer it to OSG Connect.
+previous lessons and transfer it to OSG Connect. Note that the `~/Downloads/filesystem`
+part will need to be changed to wherever you downloaded yesterday's material to.
 
 ~~~
-$ scp -r username@login.osgconnect.net:~/Downloads/filesystem .
+$ scp -r ~/Downloads/filesystem username@login.osgconnect.net:~
 Password: ********
 ~~~
 {:class="in"}
@@ -178,20 +179,17 @@ backup.log                                    100%    0     0.0KB/s   00:00
 ~~~
 {:class="out"}
 
-Here's one more thing SSH can do for us.
-Suppose we want to check whether we have already created the file
-`backups/results-2011-11-12.dat` on the backup server.
-Instead of logging in and then typing `ls`,
-we could do this:
+Here's one more thing SSH can do for us. Suppose we want to check and see that
+the "filesystem" directory was transferred over. SSH can do that for us:
 
 ~~~
-$ ssh vlad@backupserver "ls ~/backups/results*"
+$ ssh username@login.osgconnect.net "ls ~/filesystem"
 Password: ********
 ~~~
 {:class="in"}
 ~~~
-results-2011-09-18.dat  results-2011-10-28.dat
-results-2011-10-04.dat  results-2011-11-11.dat
+data
+users
 ~~~
 {:class="out"}
 
@@ -306,7 +304,7 @@ Password: ********
 Paste the content that you copy at the end of `~/.ssh/authorized_keys`.
 
 ~~~
-    osg> nano ~/.ssh/authorized_keys`.
+$ nano ~/.ssh/authorized_keys`.
 ~~~
 {:class="in"}
 
@@ -314,7 +312,7 @@ After append the content, logout of the remote machine and try login again. If
 you setup your SSH key correctly you won't need to type your password.
 
 ~~~
-    osg> exit
+$ exit
 ~~~
 {:class="in"}
 ~~~
