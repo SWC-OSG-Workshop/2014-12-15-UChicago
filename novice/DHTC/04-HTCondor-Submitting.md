@@ -82,12 +82,12 @@ workloads, until you change it again.
 > necessary to change your project to get started computing.  Once you're
 > ready to begin research on OSG, there are two routes: join an existing
 > project, or create a new one.
-> 
+>   
 > To join a current project, take a look at the
 > [current projects list](http://osgconnect.net/project-summary).  If your
 > research is represented by one of these existing projects, click
 > its name to open a request to join it.
-> 
+>   
 > Otherwise, you can create a new project.  Begin with the [new project
 > documentation](https://confluence.grid.iu.edu/display/CON/Start+a+Projec
 > t+with+OSG+Connect) - you may wish to sign on your advisor as a
