@@ -75,8 +75,23 @@ change which project is used for your job submission.  Your choice here is
 saved, so whatever project you selected most recently is used for all future
 workloads, until you change it again.
 
-Every user should start out with a reasonable project -- it's not necessary
-to change your project to get started computing.
+> #### A little more about projects ####
+> 
+> Every user should start out with a reasonable project -- it's not
+> necessary to change your project to get started computing.  Once you're
+> ready to begin research on OSG, there are two routes: join an existing
+> project, or create a new one.
+> 
+> To join a current project, take a look at the
+> [current projects list](http://osgconnect.net/project-summary).  If your
+> research is represented by one of these existing projects, click
+> its name to open a request to join it.
+> 
+> Otherwise, you can create a new project.  Begin with the [new project
+> documentation](https://confluence.grid.iu.edu/display/CON/Start+a+Projec
+> t+with+OSG+Connect) - you may wish to sign on your advisor as a
+> principal investigator.
+
 
 The second command to learn up front is `tutorial`.  We will get our
 example files for all today's lessons using `tutorial`.
@@ -276,10 +291,17 @@ solving it on your own, you may contact the OSG Connect support team
 for help with held jobs.
 
 Let's wait for your job to finish – that is, for condor_q not to show
-the job in its output. `connect watch` helps for this.  Let's submit
-the job again, and watch condor_q output at five-second intervals (the
-default). Your first job has probably already completed by now, so
-submit a new one first:
+the job in its output.
+
+~~~
+$ condor_q username | tail -1
+1 jobs; 0 completed, 0 removed, 0 idle, 1 running, 0 held, 0 suspended
+~~~
+
+You could run this over and over to watch for the job to complete -- but
+`connect watch` can make this simpler.  Let's submit the job again, and
+watch condor_q output at five-second intervals (the default). Your first
+job has probably already completed by now, so submit a new one first:
 
 ~~~
 $ condor_submit tutorial01.submit
@@ -352,6 +374,142 @@ $ condor_rm 829.0
 Job 829.0 has been marked for removal.
 ~~~
 
+## Submitting jobs concurrently
+
+What do we need to do to submit several jobs simultaneously? In the
+first example, Condor returned three files: out, error, and log. If we
+want to submit several jobs, we need to track these three files for each
+job. An easy way to do this is to add the $(Cluster) and $(Process)
+macros to the HTCondor submit file. Since this can make our working
+directory really messy with a large number of jobs, let's tell HTCondor
+to put the files in a directory called log. Here's what the second (less
+verbose) submit file looks like -- `tutorial02.submit`:
+
+~~~
+Universe = vanilla 
+Executable = short.sh 
+Error = log/job.error.$(Cluster)-$(Process) 
+Output = log/job.output.$(Cluster)-$(Process) 
+Log = log/job.log.$(Cluster) 
++ProjectName="ConnectTrain"
+Queue 10 
+~~~
+
+Note the `Queue 10`.  This tells Condor to enqueue 10 copies of this job
+as one cluster.  Before submitting this cluster, we should make sure the
+log directory exists.
+
+~~~
+$ mkdir log
+~~~
+
+You'll see something like the following upon submission:
+
+~~~
+$ condor_submit tutorial02.submit
+Submitting job(s)..........
+10 job(s) submitted to cluster 837.
+~~~
+
+Apply your `condor_q` and `connect watch` knowledge to see this job
+progress.
+
+Once this cluster completes, take a look in the `log/`
+directory.
+
+~~~
+$ ls log
+0 job.error.837-0  0 job.error.837-5  4 job.log.837       0 job.output.837-4  0 job.output.837-9
+0 job.error.837-1  0 job.error.837-6  0 job.output.837-0  0 job.output.837-5
+0 job.error.837-2  0 job.error.837-7  0 job.output.837-1  0 job.output.837-6
+0 job.error.837-3  0 job.error.837-8  0 job.output.837-2  0 job.output.837-7
+0 job.error.837-4  0 job.error.837-9  0 job.output.837-3  0 job.output.837-8
+~~~
+
+You see there's one error file and one output file for each job, plus
+the `job.log.837` file for tracking the whole cluster.
+
+
+## Passing arguments to executables 
+
+Sometimes it's useful to pass arguments to your executable from your
+submit file. For example, you might want to use the same job script
+for more than one run, varying only the parameters. You can do that
+by adding `Arguments` to your submission file. Let's try that with
+`tutorial03.submit`.
+
+We want to run many more instances for this example: 100 instead of only
+10. To ensure that we don't collectively overwhelm the scheduler let's
+also dial down our sleep time from 15 seconds to 5.
+
+~~~
+Universe = vanilla 
+Executable = short.sh 
+Arguments = 5 # to sleep 5 seconds 
+Error = log/job.err.$(Cluster)-$(Process) 
+Output = log/job.out.$(Cluster)-$(Process) 
+Log = log/job.log.$(Cluster) 
+Queue 100
+~~~
+
+And let's submit:
+~~~
+$ condor_submit tutorial03
+Submitting job(s)..........
+100 job(s) submitted to cluster 938. 
+~~~
+
+This will take a little longer, of course, but we're still hardly doing
+any real work, so it shouldn't be too long.
+
+~~~
+$ condor_q username | tail -1
+100 jobs; 0 completed, 0 removed, 100 idle, 0 running, 0 held, 0 suspended
+~~~
+
+Very good, we're waiting on 100 jobs.  Let's use `connect watch` to
+watch for job completions.  As soon as you see some jobs enter R state
+(running), press control-C, and let's introduce a new command:
+
+~~~
+$ connect histogram
+Val                               |Ct (Pct)    Histogram
+unl.edu                           |46 (68.66%) ████████████████████████████████▏
+bu.edu                            |13 (19.40%) █████████▏
+uconn.edu                         |2 (2.99%)   █▌
+CRUSH-OSG-10-5-220-34             |1 (1.49%)   ▊
+ufhpc                             |1 (1.49%)   ▊
+LAW-D-SBA01-S2-its-c6-osg-20141013|1 (1.49%)   ▊
+CRUSH-OSG-10-5-10-33              |1 (1.49%)   ▊
+iu.edu                            |1 (1.49%)   ▊
+vt.edu                            |1 (1.49%)   ▊
+~~~
+
+This command gives us a simple histogram of where on the grid our jobs
+are running.  The column on the left is (for the most) a list of _sites_
+that OSG jobs run on.  At times we don't correctly group job locations
+together. For example, the two rows for CRUSH-* above are really the
+same site, but histogram doesn't know about that site (yet) so it
+displays as two.  But most of the big sites are mapped correctly.  You
+see that in my case, 67 of my 100 jobs have begun running, and among
+them 69% (46 of 67) are running at University of Nebraska at Lincoln.
+
+`connect histogram` gives metrics on current jobs.  As jobs complete,
+they no longer appear.  How to see where jobs have already run? `connect
+histogram --last` shows the run sites of your *last* job cluster.
+
+~~~
+$ connect histogram --last
+Val                               |Ct (Pct)    Histogram
+uc3                               |49 (49.00%) ████████████████████████████████▏
+bu.edu                            |21 (21.00%) █████████████▊
+uconn.edu                         |11 (11.00%) ███████▎
+unl.edu                           |9 (9.00%)   ██████
+mwt2.org                          |3 (3.00%)   ██
+c5a-s22.ufhpc                     |3 (3.00%)   ██
+LCS-215-021-S2-its-c6-osg-20141013|3 (3.00%)   ██
+cinvestav.mx                      |1 (1.00%)   ▊
+~~~
 
 <div class="keypoints" markdown="1">
 
