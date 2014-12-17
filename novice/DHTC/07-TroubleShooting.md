@@ -82,14 +82,16 @@ condor_qedit JOB-ID Requirements 'Requirements = (Memory >= 512)'
 ~~~
 
 <br/>
+<br/>
 
-> ### On your own </h3>
+> ### On your own
 > * Use the `connect status` command to get a list of pools (e.g., 'uc3-mgt.mwt2.org') <br/>
 > * Edit error101_job.submit, replacing the `Requirements` line with `Requirements = (regexp("^uc**", TARGET.Machine, "IM") == True)` before the "queue" statement. <br/>
 > *  Use `condor_q -better-analyze` against each pool. Does it match any slots? If so, where?
 
 <br/>
 <br/>
+
 <h3> condor_ssh_to_job </h3> 
 This command allows you to `ssh` to the compute node where the job is running. After running `condor_ssh_to_job`, you will be connected to the remote system, and you will be able to use normal shell commands to investigate your job.
 
@@ -154,6 +156,8 @@ on_exit_hold = (ExitBySignal == True) || (ExitCode != 0)
 periodic_release =  (NumJobStarts < 5) && ((CurrentTime - EnteredCurrentStatus) > 60)
 ~~~
 
+<br/>
+<br/>
 
 > ### On your own
 > * Run `tutorial exitcode` to download a copy of this exercise. This tutorial contains a simple script that has roughly a 50/50 chance of exiting 1 or 0. <br/>
@@ -164,6 +168,8 @@ periodic_release =  (NumJobStarts < 5) && ((CurrentTime - EnteredCurrentStatus) 
 > <br/>
 > In part 3, how many jobs remain in Held state after 10 minutes or so?
 
+<br/>
+<br/>
 
 <div class="keypoints" markdown="1">
 #### Keypoints
