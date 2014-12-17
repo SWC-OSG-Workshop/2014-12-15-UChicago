@@ -85,8 +85,8 @@ condor_qedit JOB-ID Requirements 'Requirements = (Memory >= 512)'
 <br/>
 
 > ### On your own
-> * Use the `connect status` command to get a list of pools (e.g., 'uc3-mgt.mwt2.org') <br/>
-> * Edit error101_job.submit, replacing the `Requirements` line with `Requirements = (regexp("^uc**", TARGET.Machine, "IM") == True)` before the "queue" statement. <br/>
+> * Use the `connect status` command to get a list of pools (e.g., `uc3-mgt.mwt2.org`) <br/>
+> * Edit `error101_job.submit`, replacing the `Requirements` line with `Requirements = (regexp("^uc**", TARGET.Machine, "IM") == True)` before the `queue` statement. <br/>
 > *  Use `condor_q -better-analyze` against each pool. Does it match any slots? If so, where?
 
 <br/>
