@@ -161,12 +161,10 @@ periodic_release =  (NumJobStarts < 5) && ((CurrentTime - EnteredCurrentStatus) 
 
 > ### On your own
 > * Run `tutorial exitcode` to download a copy of this exercise. This tutorial contains a simple script that has roughly a 50/50 chance of exiting 1 or 0. <br/>
-> * Submit the exitcode.submit job <br/>
+> * Submit the `exitcode.submit` job <br/>
 > * Edit the job, uncomment the line containing `periodic release`, and resubmit your job.<br/> 
->
-> How many jobs go into Held state in part 2? <br/>
-> <br/>
-> In part 3, how many jobs remain in Held state after 10 minutes or so?
+> ** How many jobs go into Held state in part 2? <br/>
+> ** In part 3, how many jobs remain in Held state after 10 minutes or so?
 
 <br/>
 <br/>
