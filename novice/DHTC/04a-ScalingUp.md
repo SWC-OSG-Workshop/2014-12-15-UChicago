@@ -233,6 +233,207 @@ blow this up to full size.  You will see your recent jobs occupying
 columns to the right edge of the plot -- this is another place you can
 monitor to see how your work is progressing.
 
+## Moving a conventional job to the grid
+
+Let's look back at Nelle Nemo's goo problem.  As you recall, Nelle
+collected 15 samples, and boiled them down to 15 data files -- well, 17,
+with two incompletes that she does not want to process.  She analyzed
+these with a shell script that processed each file sequentially.  But
+what if the analysis took longer -- say, two hours instead of two
+seconds? Nelle might be interested in running her analysis on the grid,
+reducing her computation time from 30 hours in total (2h x 15 samples)
+to maybe 2-3 hours in total.
+
+Let's take a look at Nelle's code again, and see how we might adapt this
+to the OSG.
+
+~~~
+$ tutorial nelle-nemo
+Installing nelle-nemo (master)...
+Tutorial files installed in ./tutorial-nelle-nemo.
+Running setup in ./tutorial-nelle-nemo...
+[653/0]$ cd tutorial-nelle-nemo
+[654/0]$ ls -sF
+total 152
+4 do-stats.sh*       8 NENE01729A.txt  8 NENE01843A.txt  8 NENE02040A.txt
+4 goodiff            8 NENE01729B.txt  8 NENE01843B.txt  8 NENE02040B.txt  
+4 goo-multi.sh*      8 NENE01736A.txt  8 NENE01971Z.txt  8 NENE02040Z.txt
+4 goo-single.submit  8 NENE01751A.txt  8 NENE01978A.txt  8 NENE02043A.txt  
+4 goostats*          8 NENE01751B.txt  8 NENE01978B.txt  8 NENE02043B.txt
+0 log/               8 NENE01812A.txt  4 NENE02018B.txt
+~~~
+
+This tutorial reproduces the exact do-stats.sh script that we developed
+in the unit on shell programming, and incorporates Nelle's 17 data files
+and her goodiff and goostats scripts.  Let's look again at do-stats.sh:
+
+~~~
+#!/bin/bash
+for filename in $*
+do
+        date
+        echo Now processing $filename...
+
+        ./goostats -J 100 -r $filename stats-$filename
+done
+~~~
+
+So, given a set of data files and the goostats script, it will produce
+a new file with the same name as the data file, prefixed with "stats-".
+We can leave this script alone -- it will work fine on the grid.
+
+Now let's look at a new file, goo-single.submit:
+
+~~~
+Universe = vanilla
+
+Executable = do-stats.sh
+Transfer_Input_Files = goostats, NENE01729A.txt
+Arguments = NENE01729A.txt
+
+Log = log/cluster.log
+Output = log/job.output.$(Cluster)-$(Process)
+Error = log/job.error.$(Cluster)-$(Process)
+
+Queue 1
+~~~
+
+This is quite similar to the tutorial submission from our chapter on
+scaling up jobs.  We've gone back to submitting only one job in the cluster
+(`Queue 1`) but we're retained the `Arguments` parameter.  We've set
+the `Executable` to `do-stats.sh`, so when it runs on the grid, it will
+be as if Nelle had typed:
+
+~~~
+$ do-stats.sh NENE01729A.txt
+~~~
+
+This accomplishes the task of running the job -- but there's one more
+critical parameter here: `Transfer_Input_Files`.  This is a crucial
+addition.  It tells HTCondor that we will need a copy of `goostats` and
+a copy of `NENE01729A.txt` to be transmitted to the grid worker in order
+to complete the job.  HTCondor takes care of transmittal on its own, but
+you _must_ tell it which files are required.
+
+Let's submit this job and wait for it to complete.
+
+~~~
+$ condor_submit goo-single.submit
+$ connect watch
+~~~
+
+When it's complete, you should find a stats-NENE01729A.txt file in your
+directory.  HTCondor will automatically detect any new files that were
+created on the remote worker and send them back to you when the job
+completes.
+
+
+OK, great - but now do we grid-scale the whole workload?  For this,
+clearly, we need to submit 15 _different_ jobs.  A common way to do this
+is to create a shell script whose output is a submit file.  That's what
+`goo-multi.sh` is.
+
+Here's `goo-multi.sh`:
+~~~
+#!/bin/bash
+
+echo "Universe = vanilla"
+echo
+echo "Executable = do-stats.sh"
+echo
+echo 'Log = log/cluster.$(Cluster).log'
+echo 'Output = log/job.output.$(Cluster)-$(Process)'
+echo 'Error = log/job.error.$(Cluster)-$(Process)'
+echo
+echo '# Now begins the enqueueing of many jobs:'
+
+for file in $*
+do
+        echo
+        echo "Arguments = $file"
+        echo "Transfer_Input_Files = goostats, $file"
+        echo 'Queue'
+done
+~~~
+
+In terms if shell, everything here should be familiar now -- the only
+constructs we use are `echo` (to write output) and a `for` loop.  So
+let's look at the overall structure:
+
+1. A bunch of `echo`s at the top write a "header" for your submit file, containing common parameter that will be shared among all jobs.
+2. A `for` loop executes once for each file on the argument list.
+3. Inside that loop, we `echo` arguments and a file list, then enqueue a job.
+
+We'll run this script the same way we ran do-stats.sh previously (in
+unit 1) -- with `NENE*[AB].txt` as arguments.
+
+~~~
+$ ./goo-multi.sh NENE*[AB].txt >goo-multi.submit
+$ nano goo-multi.submit
+~~~
+
+Let's look at the result.  It's long so this is only a fragment:
+
+~~~
+Universe = vanilla
+
+Executable = do-stats.sh
+
+Log = log/cluster.$(Cluster).log
+Output = log/job.output.$(Cluster)-$(Process)
+Error = log/job.error.$(Cluster)-$(Process)
+
+# Now begins the enqueueing of many jobs:
+
+Arguments = NENE01729A.txt
+Transfer_Input_Files = goostats, NENE01729A.txt
+Queue
+
+Arguments = NENE01729B.txt
+Transfer_Input_Files = goostats, NENE01729B.txt
+Queue
+
+Arguments = NENE01736A.txt
+Transfer_Input_Files = goostats, NENE01736A.txt
+Queue
+
+...
+~~~
+
+This pattern repeats until each file has been assigned to its own job,
+and enqueued.  Note that for each job -- that is, for each `Queue`
+statement -- we re-set the `Arguments` parameter to a different
+filename, and set `Transfer_Input_Files` to deliver both that file and
+the `goostats` program to the worker. (`do-stats.sh` is always delivered
+because it is the `Executable`.)
+
+When we submit this job, we'll see 15 **I**dle or **R**unning jobs in
+`condor_q` or `connect watch`.  As they complete -- and as before, they
+will be quick -- we'll find their output files accumulating in the job
+directory.
+
+~~~
+$ ls
+total 216
+4 do-stats.sh*       8 NENE01843B.txt        4 stats-NENE01751A.txt
+4 goodiff            8 NENE01971Z.txt        4 stats-NENE01751B.txt
+4 goo-multi.sh*      8 NENE01978A.txt        4 stats-NENE01812A.txt
+4 goo-single.submit  8 NENE01978B.txt        4 stats-NENE01843A.txt
+4 goostats*          4 NENE02018B.txt        4 stats-NENE01843B.txt
+4 log/               8 NENE02040A.txt        4 stats-NENE01978A.txt
+8 NENE01729A.txt     8 NENE02040B.txt        4 stats-NENE01978B.txt
+8 NENE01729B.txt     8 NENE02040Z.txt        4 stats-NENE02018B.txt
+8 NENE01736A.txt     8 NENE02043A.txt        4 stats-NENE02040A.txt
+8 NENE01751A.txt     8 NENE02043B.txt        4 stats-NENE02040B.txt
+8 NENE01751B.txt     4 stats-NENE01729A.txt  4 stats-NENE02043A.txt
+8 NENE01812A.txt     4 stats-NENE01729B.txt  4 stats-NENE02043B.txt
+8 NENE01843A.txt     4 stats-NENE01736A.txt
+~~~
+
+These results will be just like those run on your laptop, but they will
+each have run on the grid.  For larger tasks than goostats, this can
+save a great deal of time.
+
 <div class="keypoints" markdown="1">
 
 #### Key Points
