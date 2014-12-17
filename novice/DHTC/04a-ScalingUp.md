@@ -129,6 +129,7 @@ We want to run many more instances for this example: 100 instead of only
 also dial down our sleep time from 15 seconds to 5.
 
 Submission script:
+
 ~~~
 Universe = vanilla 
 
@@ -168,6 +169,7 @@ sleeps for 15 seconds.  And in our job submission script, we added
 `Arguments = 5`, so now our workers will sleep for five seconds.
 
 Let's submit:
+
 ~~~
 $ condor_submit tutorial03
 Submitting job(s)..........
@@ -334,6 +336,7 @@ is to create a shell script whose output is a submit file.  That's what
 `goo-multi.sh` is.
 
 Here's `goo-multi.sh`:
+
 ~~~
 #!/bin/bash
 

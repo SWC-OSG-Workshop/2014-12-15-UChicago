@@ -399,6 +399,7 @@ What happens if we write only `Queue`, with no argument?
 `condor_history -long username` gives a LOT of extended information about
 your past jobs, ordered as key-value pairs.  Try it with your a single
 job from your last cluster:
+
 ~~~
 $ condor_history -long ######.0
 ~~~
