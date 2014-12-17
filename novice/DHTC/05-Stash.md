@@ -157,8 +157,8 @@ $ ssh username@login.osgconnect.net
 Type:
 
 ~~~
-$ tutorial namd-stash
-$ cd ~/osg-stash-namd
+$ tutorial stash-namd
+$ cd ~/tutorial-stash-namd
 ~~~
 
 *Aside*: [NAMD](http://www.ks.uiuc.edu/Research/namd/) is a widely used molecular dynamics simulation program. It lets users specify a molecule in some initial state and then observe its time evolution subject to forces. Essentially, it lets you go from a specifed molecular [structure](http://en.wikipedia.org/wiki/Superoxide_dismutase#mediaviewer/File:Superoxide_dismutase_2_PDB_1VAR.png) to a [simulation](https://www.youtube.com/watch?v=mk3cLd9PUPA&list=PL418E1C62DD9FC8BA&index=1) of its behavior in a particular environment.  It has been used to study polio eradication, similations of graphene, and studies of biofuels.
